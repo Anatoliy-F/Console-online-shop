@@ -1,0 +1,645 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bll</name>
+    </assembly>
+    <members>
+        <member name="T:ConsoleShop.Controller.Base.BaseActionResult">
+            <inheritdoc />
+        </member>
+        <member name="P:ConsoleShop.Controller.Base.BaseActionResult.Result">
+            <inheritdoc />
+        </member>
+        <member name="P:ConsoleShop.Controller.Base.BaseActionResult.Message">
+            <inheritdoc />
+        </member>
+        <member name="P:ConsoleShop.Controller.Base.BaseActionResult.ResultBody">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Controller.Base.BaseActionResult.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
+            <summary>
+            Initialize new instance of response object. 
+            </summary>
+            <param name="result">Response result</param>
+            <param name="message">Response message</param>
+            <param name="resultBody">Collection of requested entities</param>
+        </member>
+        <member name="M:ConsoleShop.Controller.Base.BaseActionResult.RenderResult">
+            <inheritdoc />
+        </member>
+        <member name="T:ConsoleShop.Controller.Base.ActionResult">
+            <summary>
+            Represents possible response statuses
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Controller.Base.ActionResult.Succes">
+            <summary>
+            Request processed successfully
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Controller.Base.ActionResult.Error">
+            <summary>
+            An error occurred while executing the request
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Controller.Base.ActionResult.Warning">
+             <summary>
+            Input data does not match the required format
+             </summary>
+        </member>
+        <member name="F:ConsoleShop.Controller.Base.ActionResult.NotFound">
+            <summary>
+            Requested object not found
+            </summary>
+        </member>
+        <member name="T:ConsoleShop.Controller.Base.IActionResult">
+            <summary>
+            Define response object
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Controller.Base.IActionResult.Result">
+            <summary>
+            Represents response status
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Controller.Base.IActionResult.Message">
+            <summary>
+            Represents response message
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Controller.Base.IActionResult.ResultBody">
+            <summary>
+            Represents collection of requested entities
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Controller.Base.IActionResult.RenderResult">
+            <summary>
+            This method determines the type of response form, for example: writing to a file,
+            response over the network using JSON or html, etc.
+            </summary>
+        </member>
+        <member name="T:ConsoleShop.Controller.Base.IActionResultFactory">
+            <summary>
+            Define factory that instantiate IActionResult object
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Controller.Base.IActionResultFactory.GetResultRender(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
+            <summary>
+            The method accepts response parameters and returns a response object
+            </summary>
+            <param name="result">Response result</param>
+            <param name="message">Response message</param>
+            <param name="responseBody">Collection of requested entities, may be null, if
+            response didn't containt body</param>
+            <returns>IActionResult object</returns>
+        </member>
+        <member name="T:ConsoleShop.Controller.Base.IController">
+            <summary>
+            Base interface for controllers
+            </summary>
+        </member>
+        <member name="T:ConsoleShop.Controller.Base.ISession">
+            <summary>
+            Describes an object that persists the state of a user's session between requests.
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Controller.Base.ISession.User">
+            <summary>
+            Authorized user
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Controller.Base.ISession.Cart">
+            <summary>
+            Shopping cart
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Controller.Base.ISession.SetUser(ConsoleShop.Model.User)">
+            <summary>
+            Method that sets an instance of an authorized user
+            </summary>
+            <param name="user">Authorized user</param>
+        </member>
+        <member name="T:ConsoleShop.Controller.CartController">
+            <inheritdoc/>
+        </member>
+        <member name="F:ConsoleShop.Controller.CartController._productRepo">
+            <summary>
+            An object that provides operations with Product entities
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Controller.CartController._orderRepo">
+            <summary>
+            An object that provides operations with Orders entities
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Controller.CartController._session">
+            <summary>
+            An object that represents current session
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Controller.CartController._actionResultFactory">
+            <summary>
+            Object that instantiate IActionResult object
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Controller.CartController.#ctor(ConsoleShop.Dal.Repos.Interfaces.IProductRepo,ConsoleShop.Dal.Repos.Interfaces.IOrderRepo,ConsoleShop.Controller.Base.ISession,ConsoleShop.Controller.Base.IActionResultFactory)">
+            <summary>
+            Initialize new instance of CartController
+            </summary>
+            <param name="productRepo">An object that implements possible operations with Product objects</param>
+            <param name="orderRepo">An object that implements possible operations with Order objects</param>
+            <param name="session">An object that provide session functions</param>
+            <param name="actionResultFactory">Object that instantiate IActionResult object</param>
+        </member>
+        <member name="M:ConsoleShop.Controller.CartController.AddToCart(System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.CartController.ShowCart">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.CartController.MakeOrder(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.CartController.ClearCart">
+            <inheritdoc/>
+        </member>
+        <member name="T:ConsoleShop.Controller.CategoryController">
+            <inheritdoc/>
+        </member>
+        <member name="F:ConsoleShop.Controller.CategoryController._repo">
+            <summary>
+            An object that implements possible operations with Category objects
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Controller.CategoryController._actionResultFactory">
+            <summary>
+            Object that instantiate IActionResult object
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Controller.CategoryController.#ctor(ConsoleShop.Dal.Repos.Interfaces.ICategoryRepo,ConsoleShop.Controller.Base.IActionResultFactory)">
+            <summary>
+            Initialize new instance of CategoryController
+            </summary>
+            <param name="repo">An object that implements possible operations with Category objects</param>
+            <param name="actionResultFactory">Object that instantiate IActionResult object</param>
+        </member>
+        <member name="M:ConsoleShop.Controller.CategoryController.ShowAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.CategoryController.ShowById(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.CategoryController.Add(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.CategoryController.Update(System.Int32,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ConsoleShop.Controller.ErrorController">
+            <inheritdoc/>
+        </member>
+        <member name="F:ConsoleShop.Controller.ErrorController._actionResultFactory">
+            <summary>
+            Object that instantiate IActionResult object
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Controller.ErrorController.#ctor(ConsoleShop.Controller.Base.IActionResultFactory)">
+            <summary>
+            Initialize new instance of ErrorController
+            </summary>
+            <param name="actionResultFactory">Object that instantiate IActionResult object</param>
+        </member>
+        <member name="M:ConsoleShop.Controller.ErrorController.ShowError(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ConsoleShop.Controller.Interfaces.ICartController">
+            <summary>
+            Defines operations applicable with shopping cart
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.ICartController.AddToCart(System.Int32,System.Int32)">
+            <summary>
+            Add position in cart
+            </summary>
+            <param name="productId">Id of added product</param>
+            <param name="quantity">Quantity of added product, be default 1</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.ICartController.ShowCart">
+            <summary>
+            Show cart contents
+            </summary>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.ICartController.MakeOrder(System.String,System.String)">
+            <summary>
+            Checkout
+            </summary>
+            <param name="name">Order name</param>
+            <param name="address">Delivery address</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.ICartController.ClearCart">
+            <summary>
+            Clear the contents of the cart
+            </summary>
+            <returns>Response object</returns>
+        </member>
+        <member name="T:ConsoleShop.Controller.Interfaces.ICategoryController">
+            <summary>
+            Defines operations applicable with Category entities
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.ICategoryController.ShowAll">
+            <summary>
+            Get a list of all categories
+            </summary>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.ICategoryController.ShowById(System.Int32)">
+            <summary>
+            Get category by id
+            </summary>
+            <param name="id">Category id</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.ICategoryController.Add(System.String)">
+            <summary>
+            Add new Category
+            </summary>
+            <param name="name">Name of new Category</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.ICategoryController.Update(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id">Category id</param>
+            <param name="name">New category name</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="T:ConsoleShop.Controller.Interfaces.IErrorController">
+            <summary>
+            Defines operations applicable with error
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IErrorController.ShowError(System.String)">
+            <summary>
+            Show error object
+            </summary>
+            <param name="msg">Error message</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="T:ConsoleShop.Controller.Interfaces.IOrderController">
+            <summary>
+            Defines operations applicable with Order entities
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IOrderController.ShowOrders">
+            <summary>
+            Returns orders made by an authorized user
+            </summary>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IOrderController.ShowAllOrders">
+            <summary>
+            Returns all orders
+            </summary>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IOrderController.ConfirmReceipt(System.Int32)">
+            <summary>
+            The method confirms the receipt of the order by the user
+            </summary>
+            <param name="orderId">Id of order</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IOrderController.CancellOrder(System.Int32)">
+            <summary>
+            Cancellation of the order by the user
+            </summary>
+            <param name="orderId">Id of order</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IOrderController.ChangeOrderStatus(System.Int32,ConsoleShop.Model.OrderStatus)">
+            <summary>
+            Change order status
+            </summary>
+            <param name="orderId">Id of order</param>
+            <param name="status">Status</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="T:ConsoleShop.Controller.Interfaces.IProductController">
+            <summary>
+            Defines operations applicable with Product
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IProductController.ShowAll">
+            <summary>
+            Return all products
+            </summary>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IProductController.ShowById(System.Int32)">
+            <summary>
+            Return product by id
+            </summary>
+            <param name="id">Product Id</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IProductController.ShowByName(System.String)">
+            <summary>
+            Returning a collection of products whose names match the description of the query
+            </summary>
+            <param name="name">Search query</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IProductController.AddNew(ConsoleShop.Model.Product)">
+            <summary>
+            Add new Product in store
+            </summary>
+            <param name="product">New Product object</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IProductController.UpdateProduct(System.Int32,ConsoleShop.Model.Product)">
+            <summary>
+            Update existing product
+            </summary>
+            <param name="id">Id of updated product</param>
+            <param name="product">Product object, all non-empty properties 
+            replaces properties of existing product</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="T:ConsoleShop.Controller.Interfaces.IUserController">
+            <summary>
+            Defines operations applicable with user object
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IUserController.LogOut">
+            <summary>
+            User session termination
+            </summary>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IUserController.Login(System.String,System.String)">
+            <summary>
+            User authorization
+            </summary>
+            <param name="userName">Unique user identifier</param>
+            <param name="password">User password</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IUserController.ChangeName(System.String,System.String)">
+            <summary>
+            Change user identificator by user
+            </summary>
+            <param name="userName">New user name</param>
+            <param name="password">User password</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IUserController.ChangeUserName(System.String,System.String)">
+            <summary>
+            Сhange username out of user session by administrator
+            </summary>
+            <param name="userName">Current user name</param>
+            <param name="newUserName">New user name</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IUserController.ChangeUserPassword(System.String,System.String,System.String)">
+            <summary>
+            Сhange user password out of user session by administrator
+            </summary>
+            <param name="userName">User name</param>
+            <param name="password">New password</param>
+            <param name="repeatPassword">Repeat new password</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IUserController.ShowAllUsers">
+            <summary>
+            Return all users
+            </summary>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IUserController.ShowUserById(System.Int32)">
+            <summary>
+            Return user by id
+            </summary>
+            <param name="id">User id</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IUserController.ChangePassword(System.String,System.String,System.String)">
+            <summary>
+            Change user password by user
+            </summary>
+            <param name="password">Current user password</param>
+            <param name="newPassword">New user password</param>
+            <param name="repeatNewPassword">Repeat new user password</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IUserController.RegisterAcount(System.String,System.String,System.String)">
+            <summary>
+            User account registration
+            </summary>
+            <param name="userName">User name</param>
+            <param name="password">User password</param>
+            <param name="repeatPassword">Repeat user password</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="T:ConsoleShop.Controller.OrderController">
+            <inheritdoc/>
+        </member>
+        <member name="F:ConsoleShop.Controller.OrderController._orderRepo">
+            <summary>
+            An object that implements possible operations with Order objects
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Controller.OrderController._actionResultFactory">
+            <summary>
+            Object that instantiate IActionResult object
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Controller.OrderController._session">
+            <summary>
+            An object that provide session functions
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Controller.OrderController.#ctor(ConsoleShop.Dal.Repos.Interfaces.IOrderRepo,ConsoleShop.Controller.Base.IActionResultFactory,ConsoleShop.Controller.Base.ISession)">
+            <summary>
+            Initialize new instance of OrderController
+            </summary>
+            <param name="orderRepo">An object that implements possible operations with Order objects</param>
+            <param name="actionResultFactory">Object that instantiate IActionResult object</param>
+            <param name="session">An object that provide session functions</param>
+        </member>
+        <member name="M:ConsoleShop.Controller.OrderController.ShowOrders">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.OrderController.ShowAllOrders">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.OrderController.ConfirmReceipt(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.OrderController.CancellOrder(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.OrderController.ChangeOrderStatus(System.Int32,ConsoleShop.Model.OrderStatus)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ConsoleShop.Controller.ProductController">
+            <inheritdoc/>
+        </member>
+        <member name="F:ConsoleShop.Controller.ProductController._repo">
+            <summary>
+            An object that implements possible operations with Product objects
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Controller.ProductController._actionResultFactory">
+            <summary>
+            Object that instantiate IActionResult object
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Controller.ProductController.#ctor(ConsoleShop.Dal.Repos.Interfaces.IProductRepo,ConsoleShop.Controller.Base.IActionResultFactory)">
+            <summary>
+            Initialize new instance of ProductController
+            </summary>
+            <param name="repo">An object that implements possible operations with Product objects</param>
+            <param name="actionResultFactory">Object that instantiate IActionResult object</param>
+        </member>
+        <member name="M:ConsoleShop.Controller.ProductController.ShowAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.ProductController.ShowById(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.ProductController.ShowByName(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.ProductController.AddNew(ConsoleShop.Model.Product)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.ProductController.UpdateProduct(System.Int32,ConsoleShop.Model.Product)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ConsoleShop.Controller.UserController">
+            <inheritdoc/>
+        </member>
+        <member name="F:ConsoleShop.Controller.UserController._userRepo">
+            <summary>
+            An object that implements possible operations with User objects
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Controller.UserController._session">
+            <summary>
+            An object that provide session functions
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Controller.UserController._actionResultFactory">
+            <summary>
+            Object that instantiate IActionResult object
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Controller.UserController.#ctor(ConsoleShop.Dal.Repos.Interfaces.IUserRepo,ConsoleShop.Controller.Base.ISession,ConsoleShop.Controller.Base.IActionResultFactory)">
+            <summary>
+            Initialize new instance of UserController
+            </summary>
+            <param name="userRepo">An object that implements possible operations with User objects</param>
+            <param name="session">An object that provide session functions</param>
+            <param name="actionResultFactory">Object that instantiate IActionResult object</param>
+        </member>
+        <member name="M:ConsoleShop.Controller.UserController.LogOut">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.UserController.Login(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.UserController.ChangeName(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.UserController.ChangeUserName(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.UserController.ChangeUserPassword(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.UserController.ShowAllUsers">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.UserController.ShowUserById(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.UserController.ChangePassword(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.UserController.RegisterAcount(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.UserController.GetHash(System.String)">
+            <summary>
+            Hashes the string
+            </summary>
+            <param name="input">String</param>
+            <returns>Hashed string</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.UserController.VerifyHash(System.String,System.String)">
+            <summary>
+            Verify hash
+            </summary>
+            <param name="input">String</param>
+            <param name="hash">Hashed string</param>
+            <returns>true, if the password matches the hashed one </returns>
+        </member>
+        <member name="T:ConsoleShop.Bll.Model.Cart">
+            <inheritdoc/>
+        </member>
+        <member name="P:ConsoleShop.Bll.Model.Cart.Lines">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Bll.Model.Cart.AddItem(ConsoleShop.Model.Product,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Bll.Model.Cart.RemoveLine(ConsoleShop.Model.Product)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Bll.Model.Cart.ComputeTotalValue">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Bll.Model.Cart.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="T:ConsoleShop.Bll.Model.ICart">
+            <summary>
+            Define properties and methods of shopping cart
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Bll.Model.ICart.Lines">
+            <summary>
+            Position in the user's cart
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Bll.Model.ICart.AddItem(ConsoleShop.Model.Product,System.Int32)">
+            <summary>
+            Add item to cart
+            </summary>
+            <param name="product">Selected product</param>
+            <param name="quantity">Quantity of goods</param>
+        </member>
+        <member name="M:ConsoleShop.Bll.Model.ICart.RemoveLine(ConsoleShop.Model.Product)">
+            <summary>
+            Remove item from cart
+            </summary>
+            <param name="product">Selected product</param>
+        </member>
+        <member name="M:ConsoleShop.Bll.Model.ICart.ComputeTotalValue">
+            <summary>
+            Returns the total cost of goods
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ConsoleShop.Bll.Model.ICart.Clear">
+            <summary>
+            Removes all items
+            </summary>
+        </member>
+    </members>
+</doc>
