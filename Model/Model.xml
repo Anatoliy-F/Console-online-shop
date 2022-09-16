@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Model</name>
+    </assembly>
+    <members>
+        <member name="T:ConsoleShop.Model.BaseEntity.IEntity">
+            <summary>
+            Base interface for models entities. Can contain general properties. In this realisation empty (but good place for Id, Guid, TimeStamp)
+            </summary>
+        </member>
+        <member name="T:ConsoleShop.Model.CartLine">
+            <summary>
+            CartLine - represent item in order. Contain Product and its Quantity
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.CartLine.Id">
+            <summary>
+            represent unique identificator for entity 
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.CartLine.Product">
+            <summary>
+            navigation link to Product item
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.CartLine.Quantity">
+            <summary>
+            represent quantity of ordered goods
+            </summary>
+        </member>
+        <member name="T:ConsoleShop.Model.Category">
+            <summary>
+            Category - entity that separate product in store in subsets
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.Category.Id">
+            <summary>
+            represent unique identificator for entity 
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.Category.Name">
+            <summary>
+            represent title of the Category
+            </summary>
+        </member>
+        <member name="T:ConsoleShop.Model.OrderStatus">
+            <summary>
+            Represent available order statuses. 
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Model.OrderStatus.New">
+            <summary>
+            New order
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Model.OrderStatus.CancelledByUser">
+            <summary>
+            Order cancelled by user
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Model.OrderStatus.CancelledByAdministrator">
+            <summary>
+            Order cancelled by administrator
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Model.OrderStatus.PaymentRecieved">
+            <summary>
+            Payment received
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Model.OrderStatus.Sent">
+            <summary>
+            Package sent
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Model.OrderStatus.Received">
+            <summary>
+            Order received
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Model.OrderStatus.Completed">
+            <summary>
+            Order completed
+            </summary>
+        </member>
+        <member name="T:ConsoleShop.Model.Order">
+            <summary>
+            Order - entity that represent purchase in our store
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.Order.Id">
+            <summary>
+            represent unique identificator for entity 
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.Order.Name">
+            <summary>
+            represent name of order assigmented by user
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.Order.UserId">
+            <summary>
+            represent identificator of user, who make this order
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.Order.Address">
+            <summary>
+            represent delivering address
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.Order.Status">
+            <summary>
+            represent currnet order status
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.Order.Lines">
+            <summary>
+            represent type and quantity of buying items
+            </summary>
+        </member>
+        <member name="T:ConsoleShop.Model.Product">
+            <summary>
+            Product - entity that represent product in our store
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.Product.Id">
+            <summary>
+            represent unique identificator for entity 
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.Product.CategoryId">
+            <summary>
+            represent Id of category that corresponds for product
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.Product.Name">
+            <summary>
+            represent Product title for searching and ordering purposes
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.Product.Description">
+            <summary>
+            represent Product description. Appointment, manufacturer, etc.
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.Product.Price">
+            <summary>
+            represent Product cost
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.Product.CategoryNav">
+            <summary>
+            navigation property, that represent Product's Category
+            </summary>
+        </member>
+        <member name="T:ConsoleShop.Model.UserRole">
+            <summary>
+            Represent available user roles.
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Model.UserRole.Guest">
+            <summary>
+            User by default, i.e. unknown user, information about him didn't persists.
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Model.UserRole.RegisteredUser">
+            <summary>
+            Represent user after registration
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Model.UserRole.Administrator">
+            <summary>
+            Have access for CRUD operations
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Model.UserRole.System">
+            <summary>
+            "superuser" for implementing redirect of users request
+            </summary>
+        </member>
+        <member name="T:ConsoleShop.Model.User">
+            <summary>
+            User - entity that represent customer or employee 
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.User.Id">
+            <summary>
+            represent unique identificator for entity
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.User.Name">
+            <summary>
+            represent name of user, his login. It should be unique for authorization.
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.User.Role">
+            <summary>
+            represent user access level
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.User.PasswordHash">
+            <summary>
+            stores hashed user password
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Model.User.Orders">
+            <summary>
+            navigation property, that represent collection of user orders
+            </summary>
+        </member>
+    </members>
+</doc>
