@@ -1,0 +1,374 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dal</name>
+    </assembly>
+    <members>
+        <member name="T:ConsoleShop.Dal.Exception.CustomRepoException">
+            <summary>
+            Represent errors that occur during execution when trying when trying to save entities that violate the integrity of the application
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Dal.Exception.CustomRepoException.#ctor">
+            <summary>
+            Initializes a new instance of CustomRepoException without additional information about exception
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Dal.Exception.CustomRepoException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of CustomRepoException with a specified error message
+            </summary>
+            <param name="message">string message</param>
+        </member>
+        <member name="M:ConsoleShop.Dal.Exception.CustomRepoException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of CustomRepoException with a specified error message and a reference to the inner exception that is the cause of this exception
+            </summary>
+            <param name="message">string message</param>
+            <param name="inner">System.Exception inner</param>
+        </member>
+        <member name="M:ConsoleShop.Dal.Exception.CustomRepoException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of CustomRepoException with serialized data
+            </summary>
+            <param name="info">System.Runtime.Serialization.SerializationInfo</param>
+            <param name="context">System.Runtime.Serialization.StreamingContext</param>
+        </member>
+        <member name="T:ConsoleShop.Dal.Exception.NotFoundException">
+            <summary>
+            Represent errors that occur during execution when the related entity is not in the store
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Dal.Exception.NotFoundException.#ctor">
+            <summary>
+            Initializes a new instance of NotFoundException without additional information about exception
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Dal.Exception.NotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of NotFoundException with a specified error message
+            </summary>
+            <param name="message">string message</param>
+        </member>
+        <member name="M:ConsoleShop.Dal.Exception.NotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of NotFoundException with a specified error message and a reference to the inner exception that is the cause of this exception
+            </summary>
+            <param name="message">string message</param>
+            <param name="inner">System.Exception inner</param>
+        </member>
+        <member name="M:ConsoleShop.Dal.Exception.NotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of NotFoundException with serialized data
+            </summary>
+            <param name="info">System.Runtime.Serialization.SerializationInfo</param>
+            <param name="context">System.Runtime.Serialization.StreamingContext</param>
+        </member>
+        <member name="T:ConsoleShop.Dal.IShopContext">
+            <summary>
+            Represent storage for all entities
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Dal.IShopContext.Products">
+            <summary>
+            Represent list of Products
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Dal.IShopContext.Categories">
+            <summary>
+            Represent list of Categories
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Dal.IShopContext.Users">
+            <summary>
+            Represent list of Users
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Dal.IShopContext.Orders">
+            <summary>
+            Represent list of Orders
+            </summary>
+        </member>
+        <member name="T:ConsoleShop.Dal.Repos.BaseRepo`1">
+            <inheritdoc />
+        </member>
+        <member name="P:ConsoleShop.Dal.Repos.BaseRepo`1.ShopContext">
+            <inheritdoc />
+        </member>
+        <member name="P:ConsoleShop.Dal.Repos.BaseRepo`1.List">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.BaseRepo`1.#ctor(ConsoleShop.Dal.IShopContext)">
+            <summary>
+            Initialize new instance of repository
+            </summary>
+            <param name="shopContext"></param>
+        </member>
+        <member name="T:ConsoleShop.Dal.Repos.CategoryRepo">
+            <inheritdoc />
+        </member>
+        <member name="F:ConsoleShop.Dal.Repos.CategoryRepo._categories">
+            <summary>
+            Categories list
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.CategoryRepo.#ctor(ConsoleShop.Dal.IShopContext)">
+            <summary>
+            Initialize new instance of CategoryRepository to manage saving, updating and retrieving Categories entities 
+            </summary>
+            <param name="shopContext">storage</param>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.CategoryRepo.Add(ConsoleShop.Model.Category)">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.CategoryRepo.Find(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.CategoryRepo.GetAll">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.CategoryRepo.Update(System.Int32,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:ConsoleShop.Dal.Repos.Interfaces.ICategoryRepo">
+            <summary>
+            Interface defines the operations applicable to the ConsoleShop.Model.Category entities
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.Interfaces.ICategoryRepo.Update(System.Int32,System.String)">
+            <summary>
+            Update existing category
+            </summary>
+            <param name="id">int id - id of existing Category</param>
+            <param name="name">string name - new Category title</param>
+            <returns>int id - id of updated Category</returns>
+            <exception cref="T:ConsoleShop.Dal.Exception.NotFoundException">Trown when category with <paramref name="id"/>
+            didn;t exist in context</exception>
+        </member>
+        <member name="T:ConsoleShop.Dal.Repos.Interfaces.IOrderRepo">
+            <summary>
+            Interface defines the operations applicable to the ConsoleShop.Model.Order entities
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.Interfaces.IOrderRepo.FindByUser(System.Int32)">
+            <summary>
+            Return Orders made by a specific user
+            </summary>
+            <param name="userId">int id - id of existing User</param>
+            <returns>IEnumerable&lt;Order&gt;</returns>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.Interfaces.IOrderRepo.SetStatus(System.Int32,ConsoleShop.Model.OrderStatus)">
+            <summary>
+            Setting current status of Order
+            </summary>
+            <param name="orderId">int id - id of existing Order</param>
+            <param name="status">OrderStatus status - available status</param>
+        </member>
+        <member name="T:ConsoleShop.Dal.Repos.Interfaces.IProductRepo">
+            <summary>
+            Interface defines the operations applicable to the ConsoleShop.Model.Product entities
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.Interfaces.IProductRepo.Update(System.Int32,ConsoleShop.Model.Product)">
+            <summary>
+            Update existing product
+            </summary>
+            <param name="id">int id - id of existing Product</param>
+            <param name="updatedProduct">Product instance, all non-empty properties 
+            replaces properties of existing product</param>
+            <returns>int id - id of updated Product</returns>
+            <exception cref="T:ConsoleShop.Dal.Exception.NotFoundException">Thrown when 
+            collection didn't containt object with <paramref name="id"/></exception>
+            <exception cref="T:ConsoleShop.Dal.Exception.CustomRepoException">Thrown when
+            <paramref name="updatedProduct"/> specified Category that
+            application context didn't containt </exception>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.Interfaces.IProductRepo.FindByName(System.String)">
+            <summary>
+            Return Products from collection searching them by name
+            </summary>
+            <param name="name">string name</param>
+            <returns>IEnumerable&lt;Product&gt;</returns>
+        </member>
+        <member name="T:ConsoleShop.Dal.Repos.Interfaces.IRepo`1">
+            <summary>
+            Base repository interface
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.Interfaces.IRepo`1.Add(`0)">
+            <summary>
+            Add IEntity to collection
+            </summary>
+            <param name="entity">ConsoleShop.Model.BaseEntity.IEntity entity</param>
+            <returns>Id that assigned to new entity</returns>
+            <exception cref="T:ConsoleShop.Dal.Exception.CustomRepoException">Thrown when <paramref name="entity"/>
+            not validated</exception>
+            <exception cref="T:ConsoleShop.Dal.Exception.NotFoundException">Thrown when <paramref name="entity"/>
+            has dependencies that not exists in current contex</exception>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.Interfaces.IRepo`1.Find(System.Int32)">
+            <summary>
+            Return IEntity from collection searching it by id
+            </summary>
+            <param name="id">int id</param>
+            <returns>Return ConsoleShop.Model.BaseEntity.IEntity object or default value,
+            if collection did not contain object with this id </returns>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.Interfaces.IRepo`1.GetAll">
+            <summary>
+            Return all entities that persisted in store
+            </summary>
+            <returns>IEnumerable&lt;ConsoleShop.Model.BaseEntity.IEntity&gt;</returns>
+        </member>
+        <member name="T:ConsoleShop.Dal.Repos.Interfaces.IUserRepo">
+            <summary>
+            Interface defines the operations applicable to the ConsoleShop.Model.User entities
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.Interfaces.IUserRepo.Update(System.Int32,ConsoleShop.Model.User)">
+            <summary>
+            Update existing user
+            </summary>
+            <param name="id">int id - id of existing User</param>
+            <param name="updateUser">User instance, all non-empty properties replaces properties of
+            existing User</param>
+            <returns>int id - id of updated User</returns>
+            <exception cref="T:ConsoleShop.Dal.Exception.NotFoundException">Thrown when user with <paramref name="id"/>
+            didn't exist</exception>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.Interfaces.IUserRepo.UpdateByName(System.String,ConsoleShop.Model.User)">
+            <summary>
+            Update existing user
+            </summary>
+            <param name="name">string name - name of existing User</param>
+            <param name="updateUser">User instance, all non-empty properties replaces properties of
+            existing User</param>
+            <returns>int id - id of updated User</returns>
+            <exception cref="T:ConsoleShop.Dal.Exception.NotFoundException">Thrown when user with <paramref name="name"/>
+            didn't exist</exception>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.Interfaces.IUserRepo.FindByUserName(System.String)">
+            <summary>
+            Return User from collection searching him by name
+            </summary>
+            <param name="userName">string name</param>
+            <returns>User</returns>
+        </member>
+        <member name="T:ConsoleShop.Dal.Repos.OrderRepo">
+            <inheritdoc />
+        </member>
+        <member name="F:ConsoleShop.Dal.Repos.OrderRepo._orders">
+            <summary>
+            Orders list
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Dal.Repos.OrderRepo._users">
+            <summary>
+            Users list
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.OrderRepo.#ctor(ConsoleShop.Dal.IShopContext)">
+            <summary>
+            Initialize new instance of OrderRepository to manage saving, updating and retrieving Order's entities 
+            </summary>
+            <param name="shopContext">storage</param>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.OrderRepo.Add(ConsoleShop.Model.Order)">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.OrderRepo.Find(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.OrderRepo.FindByUser(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.OrderRepo.GetAll">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.OrderRepo.SetStatus(System.Int32,ConsoleShop.Model.OrderStatus)">
+            <inheritdoc />
+        </member>
+        <member name="T:ConsoleShop.Dal.Repos.ProductRepo">
+            <inheritdoc />
+        </member>
+        <member name="F:ConsoleShop.Dal.Repos.ProductRepo._products">
+            <summary>
+            Products list
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Dal.Repos.ProductRepo._categories">
+            <summary>
+            Categories list
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.ProductRepo.#ctor(ConsoleShop.Dal.IShopContext)">
+            <summary>
+            Initialize new instance of ProductRepository to manage saving, updating and retrieving Product entities
+            </summary>
+            <param name="shopContext">storage</param>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.ProductRepo.Add(ConsoleShop.Model.Product)">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.ProductRepo.Update(System.Int32,ConsoleShop.Model.Product)">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.ProductRepo.Find(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.ProductRepo.FindByName(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.ProductRepo.GetAll">
+            <inheritdoc />
+        </member>
+        <member name="T:ConsoleShop.Dal.Repos.UserRepo">
+            <inheritdoc />
+        </member>
+        <member name="F:ConsoleShop.Dal.Repos.UserRepo._users">
+            <summary>
+            Users list
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.UserRepo.#ctor(ConsoleShop.Dal.IShopContext)">
+            <summary>
+            Initialize new instance of UserRepository to manage saving, updating and retrieving User's entities 
+            </summary>
+            <param name="shopContext"></param>
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.UserRepo.Add(ConsoleShop.Model.User)">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.UserRepo.Find(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.UserRepo.FindByUserName(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.UserRepo.GetAll">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.UserRepo.Update(System.Int32,ConsoleShop.Model.User)">
+            <inheritdoc />
+        </member>
+        <member name="M:ConsoleShop.Dal.Repos.UserRepo.UpdateByName(System.String,ConsoleShop.Model.User)">
+            <inheritdoc />
+        </member>
+        <member name="T:ConsoleShop.Dal.ShopContext">
+            <inheritdoc />
+        </member>
+        <member name="P:ConsoleShop.Dal.ShopContext.Products">
+            <inheritdoc />
+        </member>
+        <member name="P:ConsoleShop.Dal.ShopContext.Categories">
+            <inheritdoc />
+        </member>
+        <member name="P:ConsoleShop.Dal.ShopContext.Users">
+            <inheritdoc />
+        </member>
+        <member name="P:ConsoleShop.Dal.ShopContext.Orders">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
