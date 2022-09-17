@@ -9,7 +9,7 @@ using System.Linq;
 namespace ConsoleShop.View
 {
     /// <summary>
-    /// Implement IActionResult for all operations user login/logout and changing personal data
+    /// Implement IActionResult for all operations user login/logout and changing personal data <see cref="ConsoleShop.Model.User"/>
     /// </summary>
     public class LoginView : BaseView
     {

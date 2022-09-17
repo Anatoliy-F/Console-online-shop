@@ -33,7 +33,7 @@ namespace ConsoleShop.Dal.Repos.Interfaces
         /// Return User from collection searching him by name
         /// </summary>
         /// <param name="userName">string name</param>
-        /// <returns>User</returns>
+        /// <returns>User <see cref="ConsoleShop.Model.User"/></returns>
         public User FindByUserName(string userName);
     }
 }

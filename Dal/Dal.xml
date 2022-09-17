@@ -71,22 +71,22 @@
         </member>
         <member name="P:ConsoleShop.Dal.IShopContext.Products">
             <summary>
-            Represent list of Products
+            Represent list of Products <see cref="T:ConsoleShop.Model.Product"/>
             </summary>
         </member>
         <member name="P:ConsoleShop.Dal.IShopContext.Categories">
             <summary>
-            Represent list of Categories
+            Represent list of Categories <see cref="T:ConsoleShop.Model.Category"/>
             </summary>
         </member>
         <member name="P:ConsoleShop.Dal.IShopContext.Users">
             <summary>
-            Represent list of Users
+            Represent list of Users <see cref="T:ConsoleShop.Model.User"/>
             </summary>
         </member>
         <member name="P:ConsoleShop.Dal.IShopContext.Orders">
             <summary>
-            Represent list of Orders
+            Represent list of Orders <see cref="T:ConsoleShop.Model.Order"/>
             </summary>
         </member>
         <member name="T:ConsoleShop.Dal.Repos.BaseRepo`1">
@@ -123,7 +123,7 @@
             <summary>
             Initialize new instance of CategoryRepository to manage saving, updating and retrieving Categories entities 
             </summary>
-            <param name="shopContext">Storage for all entities</param>
+            <param name="shopContext">Storage for all entities <see cref="T:ConsoleShop.Dal.IShopContext"/></param>
         </member>
         <member name="M:ConsoleShop.Dal.Repos.CategoryRepo.Add(ConsoleShop.Model.Category)">
             <inheritdoc />
@@ -162,7 +162,7 @@
             Return Orders made by a specific user
             </summary>
             <param name="userId">int id - id of existing User</param>
-            <returns>IEnumerable&lt;Order&gt;</returns>
+            <returns>IEnumerable&lt;Order&gt; <see cref="T:ConsoleShop.Model.Order"/></returns>
         </member>
         <member name="M:ConsoleShop.Dal.Repos.Interfaces.IOrderRepo.SetStatus(System.Int32,ConsoleShop.Model.OrderStatus)">
             <summary>
@@ -195,7 +195,7 @@
             Return Products from collection searching them by name
             </summary>
             <param name="name">string name</param>
-            <returns>IEnumerable&lt;Product&gt;</returns>
+            <returns>IEnumerable&lt;Product&gt; <see cref="T:ConsoleShop.Model.Product"/></returns>
         </member>
         <member name="T:ConsoleShop.Dal.Repos.Interfaces.IRepo`1">
             <summary>
@@ -260,7 +260,7 @@
             Return User from collection searching him by name
             </summary>
             <param name="userName">string name</param>
-            <returns>User</returns>
+            <returns>User <see cref="T:ConsoleShop.Model.User"/></returns>
         </member>
         <member name="T:ConsoleShop.Dal.Repos.OrderRepo">
             <inheritdoc />

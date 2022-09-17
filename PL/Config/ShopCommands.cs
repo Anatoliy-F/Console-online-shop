@@ -17,8 +17,8 @@ namespace ConsoleShop.Config
         /// <summary>
         /// Return list of configured commands
         /// </summary>
-        /// <param name="factory">Instance of ControllerFactory, that provide access to configured controllers</param>
-        /// <param name="errorFactory">Instance of IActionResult factory, 
+        /// <param name="factory">Instance of ControllerFactory <see cref="ConsoleShop.Config.ControllerFactory"/>, that provide access to configured controllers</param>
+        /// <param name="errorFactory">Instance of IActionResultFactory <see cref="Controller.Base.IActionResultFactory"/>, 
         /// which provides a response object in case of an error while executing the command</param>
         /// <returns>List&lt;ICommand&gt;</returns>
         public static List<ICommand> Init(ControllerFactory factory, IActionResultFactory errorFactory)

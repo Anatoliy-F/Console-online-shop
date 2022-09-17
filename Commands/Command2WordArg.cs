@@ -40,7 +40,7 @@ namespace ConsoleShop.Commands
         /// <summary>
         /// Delegate execution
         /// </summary>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="ConsoleShop.Controller.Base.IActionResult"/></returns>
         protected override IActionResult ExecuteDelegate()
         {
             return _executor(_arg1, _arg2);

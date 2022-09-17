@@ -18,7 +18,7 @@ namespace ConsoleShop.Commands.Base
         public string Description { get; private set; }
 
         /// <summary>
-        /// Factory that instantiate Error response, set once for all Command instances
+        /// Factory that instantiate Error response, set once for all Command instances <see cref="Controller.Base.IActionResultFactory"/>
         /// </summary>
         public static IActionResultFactory ErrorViewFactory { get; set; }
 
@@ -40,7 +40,7 @@ namespace ConsoleShop.Commands.Base
         /// </summary>
         /// <param name="name">Command name</param>
         /// <param name="description">Description of the result of the command execution</param>
-        /// <param name="roles">List of user roles for which the command is available for execution</param>
+        /// <param name="roles">List of user roles for which the command is available for execution <see cref="ConsoleShop.Model.UserRole"/></param>
         protected BaseCommand(string name, string description, IEnumerable<UserRole> roles)
         {
             Name = name;
@@ -71,7 +71,7 @@ namespace ConsoleShop.Commands.Base
         /// <summary>
         /// Method executed by the command after checking the access rights and command arguments
         /// </summary>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="Controller.Base.IActionResult"/></returns>
         protected abstract IActionResult ExecuteDelegate();
 
         /// <summary>

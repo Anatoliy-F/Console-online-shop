@@ -11,27 +11,27 @@ namespace ConsoleShop.Controller.Interfaces
         /// <summary>
         /// Returns orders made by an authorized user
         /// </summary>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="Base.IActionResult"/></returns>
         public IActionResult ShowOrders();
 
         /// <summary>
         /// Returns all orders
         /// </summary>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="Base.IActionResult"/></returns>
         public IActionResult ShowAllOrders();
 
         /// <summary>
         /// The method confirms the receipt of the order by the user
         /// </summary>
         /// <param name="orderId">Id of order</param>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="Base.IActionResult"/></returns>
         public IActionResult ConfirmReceipt(int orderId);
 
         /// <summary>
         /// Cancellation of the order by the user
         /// </summary>
         /// <param name="orderId">Id of order</param>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="Base.IActionResult"/></returns>
         public IActionResult CancellOrder(int orderId);
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace ConsoleShop.Controller.Interfaces
         /// </summary>
         /// <param name="orderId">Id of order</param>
         /// <param name="status">Status</param>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="Base.IActionResult"/></returns>
         public IActionResult ChangeOrderStatus(int orderId, OrderStatus status);
     }
 }

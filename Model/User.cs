@@ -36,18 +36,22 @@ namespace ConsoleShop.Model
         /// represent unique identificator for entity
         /// </summary>
         public int Id { get; set; } = 0;
+
         /// <summary>
         /// represent name of user, his login. It should be unique for authorization.
         /// </summary>
         public string Name { get; set; } = String.Empty;
+
         /// <summary>
         /// represent user access level
         /// </summary>
         public UserRole Role { get; set; } = UserRole.Guest;
+
         /// <summary>
         /// stores hashed user password
         /// </summary>
         public string PasswordHash { get; set; } = String.Empty;
+
         /// <summary>
         /// navigation property, that represent collection of user orders
         /// </summary>

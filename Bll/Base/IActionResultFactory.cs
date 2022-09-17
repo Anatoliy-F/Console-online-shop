@@ -15,7 +15,7 @@ namespace ConsoleShop.Controller.Base
         /// <param name="message">Response message</param>
         /// <param name="responseBody">Collection of requested entities, may be null, if
         /// response didn't containt body</param>
-        /// <returns>IActionResult object</returns>
+        /// <returns>IActionResult object <see cref="Controller.Base.IActionResult"/></returns>
         public IActionResult GetResultRender(ActionResult result, string message, IEnumerable<IEntity> responseBody = null);
     }
 }

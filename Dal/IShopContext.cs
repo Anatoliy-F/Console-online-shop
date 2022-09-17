@@ -9,22 +9,22 @@ namespace ConsoleShop.Dal
     public interface IShopContext
     {
         /// <summary>
-        /// Represent list of Products
+        /// Represent list of Products <see cref="ConsoleShop.Model.Product"/>
         /// </summary>
         public List<Product> Products { get; set; }
 
         /// <summary>
-        /// Represent list of Categories
+        /// Represent list of Categories <see cref="ConsoleShop.Model.Category"/>
         /// </summary>
         public List<Category> Categories { get; set; }
 
         /// <summary>
-        /// Represent list of Users
+        /// Represent list of Users <see cref="ConsoleShop.Model.User"/>
         /// </summary>
         public List<User> Users { get; set; }
 
         /// <summary>
-        /// Represent list of Orders
+        /// Represent list of Orders <see cref="ConsoleShop.Model.Order"/>
         /// </summary>
         public List<Order> Orders { get; set; }
     }

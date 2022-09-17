@@ -12,68 +12,68 @@
         </member>
         <member name="F:ConsoleShop.Config.ControllerFactory._shopContext">
             <summary>
-            Data store
+            Data store <see cref="T:ConsoleShop.Dal.IShopContext"/>
             </summary>
         </member>
         <member name="F:ConsoleShop.Config.ControllerFactory._session">
             <summary>
-            Current user session
+            Current user session <see cref="T:ConsoleShop.Controller.Base.ISession"/>
             </summary>
         </member>
         <member name="F:ConsoleShop.Config.ControllerFactory._commands">
             <summary>
-            List of available commands
+            List of available commands <see cref="T:ConsoleShop.Commands.Base.BaseCommand"/>
             </summary>
         </member>
         <member name="M:ConsoleShop.Config.ControllerFactory.#ctor(ConsoleShop.Dal.IShopContext,ConsoleShop.Controller.Base.ISession,System.Collections.Generic.IEnumerable{ConsoleShop.Commands.Base.ICommand})">
             <summary>
             Initialize new instance of Controller factory
             </summary>
-            <param name="shopContext">Data store</param>
-            <param name="session">Current user session</param>
-            <param name="commands">List of available commands</param>
+            <param name="shopContext">Data store <see cref="T:ConsoleShop.Dal.IShopContext"/></param>
+            <param name="session">Current user session <see cref="T:ConsoleShop.Controller.Base.ISession"/></param>
+            <param name="commands">List of available commands <see cref="T:ConsoleShop.Commands.Base.BaseCommand"/></param>
         </member>
         <member name="M:ConsoleShop.Config.ControllerFactory.GetProductController">
             <summary>
             Returns the configured ProductController
             </summary>
-            <returns>ProductController instance</returns>
+            <returns>ProductController instance <see cref="T:ConsoleShop.Controller.ProductController"/></returns>
         </member>
         <member name="M:ConsoleShop.Config.ControllerFactory.GetCartController">
             <summary>
             Returns the configured CartController
             </summary>
-            <returns>CartController instance</returns>
+            <returns>CartController instance <see cref="T:ConsoleShop.Controller.CartController"/></returns>
         </member>
         <member name="M:ConsoleShop.Config.ControllerFactory.GetUserController">
             <summary>
             Returns the configured UserController
             </summary>
-            <returns>UserController instance</returns>
+            <returns>UserController instance <see cref="T:ConsoleShop.Controller.UserController"/></returns>
         </member>
         <member name="M:ConsoleShop.Config.ControllerFactory.GetOrderController">
             <summary>
             Returns the configured OrderController
             </summary>
-            <returns>OrderController instance</returns>
+            <returns>OrderController instance <see cref="T:ConsoleShop.Controller.OrderController"/></returns>
         </member>
         <member name="M:ConsoleShop.Config.ControllerFactory.GetErrorController">
             <summary>
             Returns the configured ErrorController
             </summary>
-            <returns>ErrorController instance</returns>
+            <returns>ErrorController instance <see cref="T:ConsoleShop.Controller.ErrorController"/></returns>
         </member>
         <member name="M:ConsoleShop.Config.ControllerFactory.GetHelpController">
             <summary>
             Returns the configured HelpController
             </summary>
-            <returns>HelpController instance</returns>
+            <returns>HelpController instance <see cref="T:ConsoleShop.Controller.HelpController"/></returns>
         </member>
         <member name="M:ConsoleShop.Config.ControllerFactory.GetCategoryController">
             <summary>
             Returns the configured CategoryController
             </summary>
-            <returns>CategoryController instance</returns>
+            <returns>CategoryController instance <see cref="T:ConsoleShop.Controller.CategoryController"/></returns>
         </member>
         <member name="T:ConsoleShop.Config.ShopCommands">
             <summary>
@@ -85,8 +85,8 @@
             <summary>
             Return list of configured commands
             </summary>
-            <param name="factory">Instance of ControllerFactory, that provide access to configured controllers</param>
-            <param name="errorFactory">Instance of IActionResult factory, 
+            <param name="factory">Instance of ControllerFactory <see cref="T:ConsoleShop.Config.ControllerFactory"/>, that provide access to configured controllers</param>
+            <param name="errorFactory">Instance of IActionResultFactory <see cref="T:ConsoleShop.Controller.Base.IActionResultFactory"/>, 
             which provides a response object in case of an error while executing the command</param>
             <returns>List&lt;ICommand&gt;</returns>
         </member>
@@ -176,26 +176,26 @@
         </member>
         <member name="F:ConsoleShop.Controller.HelpController._commands">
             <summary>
-            List of available commands
+            List of available commands <see cref="T:ConsoleShop.Commands.Base.BaseCommand"/>
             </summary>
         </member>
         <member name="F:ConsoleShop.Controller.HelpController._session">
             <summary>
-            An object that provide session functions
+            An object that provide session functions <see cref="T:ConsoleShop.Controller.Base.ISession"/>
             </summary>
         </member>
         <member name="F:ConsoleShop.Controller.HelpController._actionResultFactory">
             <summary>
-            Object that instantiate IActionResult object
+            Object that instantiate IActionResult object <see cref="T:ConsoleShop.Controller.Base.IActionResultFactory"/>
             </summary>
         </member>
         <member name="M:ConsoleShop.Controller.HelpController.#ctor(System.Collections.Generic.IEnumerable{ConsoleShop.Commands.Base.ICommand},ConsoleShop.Controller.Base.ISession,ConsoleShop.Controller.Base.IActionResultFactory)">
             <summary>
             Initialize new instance of HelpController
             </summary>
-            <param name="commands">List of available commands</param>
-            <param name="session">An object that provide session functions</param>
-            <param name="actionResultFactory">Object that instantiate IActionResult object</param>
+            <param name="commands">List of available commands <see cref="T:ConsoleShop.Commands.Base.BaseCommand"/></param>
+            <param name="session">An object that provide session functions <see cref="T:ConsoleShop.Controller.Base.ISession"/></param>
+            <param name="actionResultFactory">Object that instantiate IActionResult object <see cref="T:ConsoleShop.Controller.Base.IActionResultFactory"/></param>
         </member>
         <member name="M:ConsoleShop.Controller.HelpController.ViewCommands">
             <inheritdoc/>
@@ -242,7 +242,7 @@
             Read request and selects the command to execute
             </summary>
             <param name="line">String entered by the user in the console</param>
-            <returns>ICommand object, string arguments</returns>
+            <returns>ICommand object <see cref="T:ConsoleShop.Commands.Base.BaseCommand"/>, string arguments</returns>
         </member>
         <member name="T:ConsoleShop.Services.ShopSession">
             <summary>
@@ -299,7 +299,7 @@
         </member>
         <member name="T:ConsoleShop.View.Base.BaseView">
             <summary>
-            Implement IActionResult, inherits from ConsoleShop.Controller.Base BaseActionResult
+            Implement IActionResult <see cref="T:ConsoleShop.Controller.Base.IActionResult"/>
             for the console user interface
             </summary>
         </member>
@@ -307,7 +307,7 @@
             <summary>
             Initialize new instance of response object. 
             </summary>
-            <param name="result">Response result</param>
+            <param name="result">Response result <see cref="T:ConsoleShop.Controller.Base.ActionResult"/></param>
             <param name="message">Response messag</param>
             <param name="resultBody">Collection of requested entities</param>
         </member>
@@ -445,7 +445,7 @@
         </member>
         <member name="T:ConsoleShop.View.CartView">
             <summary>
-            Implement IActionResult for all operations with shopping cart
+            Implement IActionResult for all operations with shopping cart <see cref="T:ConsoleShop.Bll.Model.ICart"/>
             </summary>
         </member>
         <member name="M:ConsoleShop.View.CartView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
@@ -463,7 +463,7 @@
         </member>
         <member name="T:ConsoleShop.View.CategoryView">
             <summary>
-            Implement IActionResult for all operations with categories in shop
+            Implement IActionResult for all operations with categories in shop <see cref="T:ConsoleShop.Model.Category"/>
             </summary>
         </member>
         <member name="M:ConsoleShop.View.CategoryView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
@@ -615,7 +615,7 @@
         </member>
         <member name="T:ConsoleShop.View.LoginView">
             <summary>
-            Implement IActionResult for all operations user login/logout and changing personal data
+            Implement IActionResult for all operations user login/logout and changing personal data <see cref="T:ConsoleShop.Model.User"/>
             </summary>
         </member>
         <member name="M:ConsoleShop.View.LoginView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
@@ -633,7 +633,7 @@
         </member>
         <member name="T:ConsoleShop.View.OrderView">
             <summary>
-            Implement IActionResult for all operations with orders
+            Implement IActionResult for all operations with orders <see cref="T:ConsoleShop.Model.Order"/>
             </summary>
         </member>
         <member name="M:ConsoleShop.View.OrderView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
@@ -651,7 +651,7 @@
         </member>
         <member name="T:ConsoleShop.View.ProductView">
             <summary>
-            Implement IActionResult for all operations products
+            Implement IActionResult for all operations products <see cref="T:ConsoleShop.Model.Product"/>
             </summary>
         </member>
         <member name="M:ConsoleShop.View.ProductView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">

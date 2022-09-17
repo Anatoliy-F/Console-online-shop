@@ -8,7 +8,7 @@ using System.Linq;
 namespace ConsoleShop.View.Base
 {
     /// <summary>
-    /// Implement IActionResult, inherits from ConsoleShop.Controller.Base BaseActionResult
+    /// Implement IActionResult <see cref="Controller.Base.IActionResult"/>
     /// for the console user interface
     /// </summary>
     public abstract class BaseView : BaseActionResult
@@ -16,7 +16,7 @@ namespace ConsoleShop.View.Base
         /// <summary>
         /// Initialize new instance of response object. 
         /// </summary>
-        /// <param name="result">Response result</param>
+        /// <param name="result">Response result <see cref="Controller.Base.ActionResult"/></param>
         /// <param name="message">Response messag</param>
         /// <param name="resultBody">Collection of requested entities</param>
         protected BaseView(ActionResult result, string message, IEnumerable<IEntity> resultBody = null) : base(result, message, resultBody) { }

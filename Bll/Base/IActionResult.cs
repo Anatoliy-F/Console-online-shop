@@ -34,7 +34,7 @@ namespace ConsoleShop.Controller.Base
     public interface IActionResult
     {
         /// <summary>
-        /// Represents response status
+        /// Represents response status <see cref="ConsoleShop.Controller.Base.ActionResult"/>
         /// </summary>
         public ActionResult Result { get; }
 

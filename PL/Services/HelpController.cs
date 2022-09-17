@@ -11,24 +11,24 @@ namespace ConsoleShop.Controller
     public class HelpController : IHelpController
     {
         /// <summary>
-        /// List of available commands
+        /// List of available commands <see cref="Commands.Base.BaseCommand"/>
         /// </summary>
         private readonly IEnumerable<ICommand> _commands;
         /// <summary>
-        /// An object that provide session functions
+        /// An object that provide session functions <see cref="Controller.Base.ISession"/>
         /// </summary>
         private readonly ISession _session;
         /// <summary>
-        /// Object that instantiate IActionResult object
+        /// Object that instantiate IActionResult object <see cref="Controller.Base.IActionResultFactory"/>
         /// </summary>
         private readonly IActionResultFactory _actionResultFactory;
 
         /// <summary>
         /// Initialize new instance of HelpController
         /// </summary>
-        /// <param name="commands">List of available commands</param>
-        /// <param name="session">An object that provide session functions</param>
-        /// <param name="actionResultFactory">Object that instantiate IActionResult object</param>
+        /// <param name="commands">List of available commands <see cref="Commands.Base.BaseCommand"/></param>
+        /// <param name="session">An object that provide session functions <see cref="Controller.Base.ISession"/></param>
+        /// <param name="actionResultFactory">Object that instantiate IActionResult object <see cref="Controller.Base.IActionResultFactory"/></param>
         public HelpController(IEnumerable<ICommand> commands, ISession session, IActionResultFactory actionResultFactory)
         {
             _commands = commands.Where(c => c.Name != String.Empty);

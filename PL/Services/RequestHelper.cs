@@ -28,7 +28,7 @@ namespace ConsoleShop.Services
         /// Read request and selects the command to execute
         /// </summary>
         /// <param name="line">String entered by the user in the console</param>
-        /// <returns>ICommand object, string arguments</returns>
+        /// <returns>ICommand object <see cref="Commands.Base.BaseCommand"/>, string arguments</returns>
         public (ICommand, string) ReadRequest(string line)
         {
             ICommand command = null;

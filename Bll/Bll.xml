@@ -59,7 +59,7 @@
         </member>
         <member name="P:ConsoleShop.Controller.Base.IActionResult.Result">
             <summary>
-            Represents response status
+            Represents response status <see cref="T:ConsoleShop.Controller.Base.ActionResult"/>
             </summary>
         </member>
         <member name="P:ConsoleShop.Controller.Base.IActionResult.Message">
@@ -91,7 +91,7 @@
             <param name="message">Response message</param>
             <param name="responseBody">Collection of requested entities, may be null, if
             response didn't containt body</param>
-            <returns>IActionResult object</returns>
+            <returns>IActionResult object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="T:ConsoleShop.Controller.Base.IController">
             <summary>
@@ -223,13 +223,13 @@
             </summary>
             <param name="productId">Id of added product</param>
             <param name="quantity">Quantity of added product, be default 1</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.ICartController.ShowCart">
             <summary>
             Show cart contents
             </summary>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.ICartController.MakeOrder(System.String,System.String)">
             <summary>
@@ -237,13 +237,13 @@
             </summary>
             <param name="name">Order name</param>
             <param name="address">Delivery address</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.ICartController.ClearCart">
             <summary>
             Clear the contents of the cart
             </summary>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="T:ConsoleShop.Controller.Interfaces.ICategoryController">
             <summary>
@@ -254,21 +254,21 @@
             <summary>
             Get a list of all categories
             </summary>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.ICategoryController.ShowById(System.Int32)">
             <summary>
             Get category by id
             </summary>
             <param name="id">Category id</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.ICategoryController.Add(System.String)">
             <summary>
             Add new Category
             </summary>
             <param name="name">Name of new Category</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.ICategoryController.Update(System.Int32,System.String)">
             <summary>
@@ -276,7 +276,7 @@
             </summary>
             <param name="id">Category id</param>
             <param name="name">New category name</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="T:ConsoleShop.Controller.Interfaces.IErrorController">
             <summary>
@@ -288,7 +288,7 @@
             Show error object
             </summary>
             <param name="msg">Error message</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="T:ConsoleShop.Controller.Interfaces.IOrderController">
             <summary>
@@ -299,27 +299,27 @@
             <summary>
             Returns orders made by an authorized user
             </summary>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.IOrderController.ShowAllOrders">
             <summary>
             Returns all orders
             </summary>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.IOrderController.ConfirmReceipt(System.Int32)">
             <summary>
             The method confirms the receipt of the order by the user
             </summary>
             <param name="orderId">Id of order</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.IOrderController.CancellOrder(System.Int32)">
             <summary>
             Cancellation of the order by the user
             </summary>
             <param name="orderId">Id of order</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.IOrderController.ChangeOrderStatus(System.Int32,ConsoleShop.Model.OrderStatus)">
             <summary>
@@ -327,7 +327,7 @@
             </summary>
             <param name="orderId">Id of order</param>
             <param name="status">Status</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="T:ConsoleShop.Controller.Interfaces.IProductController">
             <summary>
@@ -338,28 +338,28 @@
             <summary>
             Return all products
             </summary>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.IProductController.ShowById(System.Int32)">
             <summary>
             Return product by id
             </summary>
             <param name="id">Product Id</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.IProductController.ShowByName(System.String)">
             <summary>
             Returning a collection of products whose names match the description of the query
             </summary>
             <param name="name">Search query</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.IProductController.AddNew(ConsoleShop.Model.Product)">
             <summary>
             Add new Product in store
             </summary>
             <param name="product">New Product object</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.IProductController.UpdateProduct(System.Int32,ConsoleShop.Model.Product)">
             <summary>
@@ -368,7 +368,7 @@
             <param name="id">Id of updated product</param>
             <param name="product">Product object, all non-empty properties 
             replaces properties of existing product</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="T:ConsoleShop.Controller.Interfaces.IUserController">
             <summary>
@@ -379,7 +379,7 @@
             <summary>
             User session termination
             </summary>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.IUserController.Login(System.String,System.String)">
             <summary>
@@ -387,7 +387,7 @@
             </summary>
             <param name="userName">Unique user identifier</param>
             <param name="password">User password</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.IUserController.ChangeName(System.String,System.String)">
             <summary>
@@ -395,7 +395,7 @@
             </summary>
             <param name="userName">New user name</param>
             <param name="password">User password</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.IUserController.ChangeUserName(System.String,System.String)">
             <summary>
@@ -403,7 +403,7 @@
             </summary>
             <param name="userName">Current user name</param>
             <param name="newUserName">New user name</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.IUserController.ChangeUserPassword(System.String,System.String,System.String)">
             <summary>
@@ -412,20 +412,20 @@
             <param name="userName">User name</param>
             <param name="password">New password</param>
             <param name="repeatPassword">Repeat new password</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.IUserController.ShowAllUsers">
             <summary>
             Return all users
             </summary>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.IUserController.ShowUserById(System.Int32)">
             <summary>
             Return user by id
             </summary>
             <param name="id">User id</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.IUserController.ChangePassword(System.String,System.String,System.String)">
             <summary>
@@ -434,7 +434,7 @@
             <param name="password">Current user password</param>
             <param name="newPassword">New user password</param>
             <param name="repeatNewPassword">Repeat new user password</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="M:ConsoleShop.Controller.Interfaces.IUserController.RegisterAcount(System.String,System.String,System.String)">
             <summary>
@@ -443,7 +443,7 @@
             <param name="userName">User name</param>
             <param name="password">User password</param>
             <param name="repeatPassword">Repeat user password</param>
-            <returns>Response object</returns>
+            <returns>Response object <see cref="T:ConsoleShop.Controller.Base.IActionResult"/></returns>
         </member>
         <member name="T:ConsoleShop.Controller.OrderController">
             <inheritdoc/>

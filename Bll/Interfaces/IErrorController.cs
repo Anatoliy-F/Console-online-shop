@@ -11,7 +11,7 @@ namespace ConsoleShop.Controller.Interfaces
         /// Show error object
         /// </summary>
         /// <param name="msg">Error message</param>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="Base.IActionResult"/></returns>
         public IActionResult ShowError(string msg);
     }
 }

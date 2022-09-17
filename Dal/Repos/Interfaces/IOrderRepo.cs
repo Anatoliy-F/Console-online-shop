@@ -12,7 +12,7 @@ namespace ConsoleShop.Dal.Repos.Interfaces
         /// Return Orders made by a specific user
         /// </summary>
         /// <param name="userId">int id - id of existing User</param>
-        /// <returns>IEnumerable&lt;Order&gt;</returns>
+        /// <returns>IEnumerable&lt;Order&gt; <see cref="ConsoleShop.Model.Order"/></returns>
         public IEnumerable<Order> FindByUser(int userId);
 
         /// <summary>

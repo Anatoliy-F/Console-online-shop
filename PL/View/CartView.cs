@@ -9,7 +9,7 @@ using System.Linq;
 namespace ConsoleShop.View
 {
     /// <summary>
-    /// Implement IActionResult for all operations with shopping cart
+    /// Implement IActionResult for all operations with shopping cart <see cref="ConsoleShop.Bll.Model.ICart"/>
     /// </summary>
     public class CartView : BaseView
     {

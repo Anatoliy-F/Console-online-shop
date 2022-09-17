@@ -21,7 +21,7 @@ namespace ConsoleShop.Commands.Base
         public string Description { get; }
 
         /// <summary>
-        /// List of user roles for which the command is available for execution
+        /// List of user roles for which the command is available for execution <see cref="ConsoleShop.Model.UserRole"/>
         /// </summary>
         IEnumerable<UserRole> Roles { get; }
 
@@ -30,7 +30,7 @@ namespace ConsoleShop.Commands.Base
         /// </summary>
         /// <param name="user">User object for check execute permissions</param>
         /// <param name="args">Request arguments</param>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="ConsoleShop.Controller.Base.IActionResult"/></returns>
         public IActionResult Execute(User user, string args);
     }
 }

@@ -10,7 +10,7 @@ namespace ConsoleShop.Controller.Interfaces
         /// <summary>
         /// User session termination
         /// </summary>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="Base.IActionResult"/></returns>
         public IActionResult LogOut();
 
         /// <summary>
@@ -18,7 +18,7 @@ namespace ConsoleShop.Controller.Interfaces
         /// </summary>
         /// <param name="userName">Unique user identifier</param>
         /// <param name="password">User password</param>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="Base.IActionResult"/></returns>
         public IActionResult Login(string userName, string password);
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace ConsoleShop.Controller.Interfaces
         /// </summary>
         /// <param name="userName">New user name</param>
         /// <param name="password">User password</param>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="Base.IActionResult"/></returns>
         public IActionResult ChangeName(string userName, string password);
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace ConsoleShop.Controller.Interfaces
         /// </summary>
         /// <param name="userName">Current user name</param>
         /// <param name="newUserName">New user name</param>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="Base.IActionResult"/></returns>
         public IActionResult ChangeUserName(string userName, string newUserName);
 
         /// <summary>
@@ -43,20 +43,20 @@ namespace ConsoleShop.Controller.Interfaces
         /// <param name="userName">User name</param>
         /// <param name="password">New password</param>
         /// <param name="repeatPassword">Repeat new password</param>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="Base.IActionResult"/></returns>
         public IActionResult ChangeUserPassword(string userName, string password, string repeatPassword);
 
         /// <summary>
         /// Return all users
         /// </summary>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="Base.IActionResult"/></returns>
         public IActionResult ShowAllUsers();
 
         /// <summary>
         /// Return user by id
         /// </summary>
         /// <param name="id">User id</param>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="Base.IActionResult"/></returns>
         public IActionResult ShowUserById(int id);
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace ConsoleShop.Controller.Interfaces
         /// <param name="password">Current user password</param>
         /// <param name="newPassword">New user password</param>
         /// <param name="repeatNewPassword">Repeat new user password</param>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="Base.IActionResult"/></returns>
         public IActionResult ChangePassword(string password, string newPassword, string repeatNewPassword);
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace ConsoleShop.Controller.Interfaces
         /// <param name="userName">User name</param>
         /// <param name="password">User password</param>
         /// <param name="repeatPassword">Repeat user password</param>
-        /// <returns>Response object</returns>
+        /// <returns>Response object <see cref="Base.IActionResult"/></returns>
         public IActionResult RegisterAcount(string userName, string password, string repeatPassword);
     }
 }

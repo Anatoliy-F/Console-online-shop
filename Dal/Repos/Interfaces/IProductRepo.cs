@@ -26,7 +26,7 @@ namespace ConsoleShop.Dal.Repos.Interfaces
         /// Return Products from collection searching them by name
         /// </summary>
         /// <param name="name">string name</param>
-        /// <returns>IEnumerable&lt;Product&gt;</returns>
+        /// <returns>IEnumerable&lt;Product&gt; <see cref="ConsoleShop.Model.Product"/></returns>
         public IEnumerable<Product> FindByName(string name);
     }
 }
