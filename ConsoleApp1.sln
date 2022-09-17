@@ -3,23 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{9B4F81B4-18EB-4D11-A1C5-2B51C8C7D1B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PL", "PL\PL.csproj", "{9B4F81B4-18EB-4D11-A1C5-2B51C8C7D1B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{913D5449-4D66-4D72-8D92-70AE00D22B46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{913D5449-4D66-4D72-8D92-70AE00D22B46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.Tests", "Model.Tests\Model.Tests.csproj", "{20223355-0D90-48AF-B69B-0AA61D99FB0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model.Tests", "Model.Tests\Model.Tests.csproj", "{20223355-0D90-48AF-B69B-0AA61D99FB0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dal", "Dal\Dal.csproj", "{7B5DFB6A-8AE8-4005-B6D9-A1345B196B4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dal", "Dal\Dal.csproj", "{7B5DFB6A-8AE8-4005-B6D9-A1345B196B4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dal.Tests", "Dal.Tests\Dal.Tests.csproj", "{4434C2AD-114F-42D7-B295-4F26722D41A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dal.Tests", "Dal.Tests\Dal.Tests.csproj", "{4434C2AD-114F-42D7-B295-4F26722D41A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bll", "Bll\Bll.csproj", "{A21A09E9-31EE-4D54-8FB6-81E31A855469}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bll", "Bll\Bll.csproj", "{A21A09E9-31EE-4D54-8FB6-81E31A855469}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bll.Tests", "Bll.Tests\Bll.Tests.csproj", "{CC41C65F-F6B5-452F-BC2F-073A9AA225B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bll.Tests", "Bll.Tests\Bll.Tests.csproj", "{CC41C65F-F6B5-452F-BC2F-073A9AA225B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commands", "Commands\Commands.csproj", "{82760657-C4B7-4800-A5F8-05DAB12C6FE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commands", "Commands\Commands.csproj", "{82760657-C4B7-4800-A5F8-05DAB12C6FE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commands.Tests", "Commands.Tests\Commands.Tests.csproj", "{3BD7FA2F-99D6-4A2A-BFF4-A28634A1D09B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commands.Tests", "Commands.Tests\Commands.Tests.csproj", "{3BD7FA2F-99D6-4A2A-BFF4-A28634A1D09B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PL.Tests", "PL.Tests\PL.Tests.csproj", "{922EBA67-5471-4B5B-9F6B-3176323A9DDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{3BD7FA2F-99D6-4A2A-BFF4-A28634A1D09B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BD7FA2F-99D6-4A2A-BFF4-A28634A1D09B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BD7FA2F-99D6-4A2A-BFF4-A28634A1D09B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{922EBA67-5471-4B5B-9F6B-3176323A9DDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{922EBA67-5471-4B5B-9F6B-3176323A9DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{922EBA67-5471-4B5B-9F6B-3176323A9DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{922EBA67-5471-4B5B-9F6B-3176323A9DDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

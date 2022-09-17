@@ -1,0 +1,533 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PL</name>
+    </assembly>
+    <members>
+        <member name="T:ConsoleApp1.Config.ControllerFactory">
+            <summary>
+            Returns controller objects by injecting dependencies through the constructor.
+            Actually configures the application controllers.
+            </summary>
+        </member>
+        <member name="F:ConsoleApp1.Config.ControllerFactory._shopContext">
+            <summary>
+            Data store
+            </summary>
+        </member>
+        <member name="F:ConsoleApp1.Config.ControllerFactory._session">
+            <summary>
+            Current user session
+            </summary>
+        </member>
+        <member name="F:ConsoleApp1.Config.ControllerFactory._commands">
+            <summary>
+            List of available commands
+            </summary>
+        </member>
+        <member name="M:ConsoleApp1.Config.ControllerFactory.#ctor(ConsoleShop.Dal.IShopContext,ConsoleShop.Controller.Base.ISession,System.Collections.Generic.IEnumerable{ConsoleShop.Commands.Base.ICommand})">
+            <summary>
+            Initialize new instance of Controller factory
+            </summary>
+            <param name="shopContext">Data store</param>
+            <param name="session">Current user session</param>
+            <param name="commands">List of available commands</param>
+        </member>
+        <member name="M:ConsoleApp1.Config.ControllerFactory.GetProductController">
+            <summary>
+            Returns the configured ProductController
+            </summary>
+            <returns>ProductController instance</returns>
+        </member>
+        <member name="M:ConsoleApp1.Config.ControllerFactory.GetCartController">
+            <summary>
+            Returns the configured CartController
+            </summary>
+            <returns>CartController instance</returns>
+        </member>
+        <member name="M:ConsoleApp1.Config.ControllerFactory.GetUserController">
+            <summary>
+            Returns the configured UserController
+            </summary>
+            <returns>UserController instance</returns>
+        </member>
+        <member name="M:ConsoleApp1.Config.ControllerFactory.GetOrderController">
+            <summary>
+            Returns the configured OrderController
+            </summary>
+            <returns>OrderController instance</returns>
+        </member>
+        <member name="M:ConsoleApp1.Config.ControllerFactory.GetErrorController">
+            <summary>
+            Returns the configured ErrorController
+            </summary>
+            <returns>ErrorController instance</returns>
+        </member>
+        <member name="M:ConsoleApp1.Config.ControllerFactory.GetHelpController">
+            <summary>
+            Returns the configured HelpController
+            </summary>
+            <returns>HelpController instance</returns>
+        </member>
+        <member name="M:ConsoleApp1.Config.ControllerFactory.GetCategoryController">
+            <summary>
+            Returns the configured CategoryController
+            </summary>
+            <returns>CategoryController instance</returns>
+        </member>
+        <member name="T:ConsoleApp1.Config.ShopCommands">
+            <summary>
+            Return list of configured commands, available in application.
+            Actualy configures commands available via UI
+            </summary>
+        </member>
+        <member name="M:ConsoleApp1.Config.ShopCommands.Init(ConsoleApp1.Config.ControllerFactory,ConsoleShop.Controller.Base.IActionResultFactory)">
+            <summary>
+            Return list of configured commands
+            </summary>
+            <param name="factory">Instance of ControllerFactory, that provide access to configured controllers</param>
+            <param name="errorFactory">Instance of IActionResult factory, 
+            which provides a response object in case of an error while executing the command</param>
+            <returns>List&lt;ICommand&gt;</returns>
+        </member>
+        <member name="T:ConsoleApp1.View.Base.SessionExtension">
+            <summary>
+            Creates extension methods for the session object
+            </summary>
+        </member>
+        <member name="M:ConsoleApp1.View.Base.SessionExtension.IsLoggedIn(ConsoleShop.Controller.Base.ISession)">
+            <summary>
+            Check is user logged in
+            </summary>
+            <param name="session">session object</param>
+            <returns>true, if user logged in</returns>
+        </member>
+        <member name="M:ConsoleApp1.View.Base.SessionExtension.GetUserName(ConsoleShop.Controller.Base.ISession)">
+            <summary>
+            Return name of logged in user or default name value
+            </summary>
+            <param name="session">session object</param>
+            <returns>User.Name or "Guest" for unauthorized users</returns>
+        </member>
+        <member name="M:ConsoleApp1.View.Base.SessionExtension.GetCartLinesCount(ConsoleShop.Controller.Base.ISession)">
+            <summary>
+            Count item is shopping cart
+            </summary>
+            <param name="session">session object</param>
+            <returns>Number of items in the cart</returns>
+        </member>
+        <member name="M:ConsoleApp1.View.Base.SessionExtension.GetOrdersCount(ConsoleShop.Controller.Base.ISession)">
+            <summary>
+            Counts the number of orders made by the user
+            </summary>
+            <param name="session">session object</param>
+            <returns>Number of user's orders</returns>
+        </member>
+        <member name="M:ConsoleApp1.View.Base.SessionExtension.GetUserTotal(ConsoleShop.Controller.Base.ISession)">
+            <summary>
+            Calculates the amount of money spent on purchases
+            </summary>
+            <param name="session">session object</param>
+            <returns>The amount of money spent by the user</returns>
+        </member>
+        <member name="T:ConsoleShop.DataSeed.DataSeeder">
+            <summary>
+            Populates the store with initial data
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.DataSeed.DataSeeder._categories">
+            <summary>
+            Categories collection
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.DataSeed.DataSeeder._products">
+            <summary>
+            Products collection
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.DataSeed.DataSeeder._cartLines">
+            <summary>
+            CartLine collection
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.DataSeed.DataSeeder._orders">
+            <summary>
+            Order collection
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.DataSeed.DataSeeder.InitContext">
+            <summary>
+            Return initial data
+            </summary>
+            <returns>IShopContext instance</returns>
+        </member>
+        <member name="M:ConsoleShop.DataSeed.DataSeeder.GetOrders">
+            <summary>
+            Return initial orders collection
+            </summary>
+            <returns>List&lt;Order&gt;</returns>
+        </member>
+        <member name="M:ConsoleShop.DataSeed.DataSeeder.GetCartLines">
+            <summary>
+            Return initial CartLine collection
+            </summary>
+            <returns>List&lt;CartLine&gt;</returns>
+        </member>
+        <member name="M:ConsoleShop.DataSeed.DataSeeder.GetUsers">
+            <summary>
+            Return initial Users collection
+            </summary>
+            <returns>List&lt;User&gt;</returns>
+        </member>
+        <member name="M:ConsoleShop.DataSeed.DataSeeder.GetCategories">
+            <summary>
+            Return initial categories collection
+            </summary>
+            <returns>List&lt;Category&gt;</returns>
+        </member>
+        <member name="M:ConsoleShop.DataSeed.DataSeeder.GetProducts">
+            <summary>
+            Return initial products collection
+            </summary>
+            <returns>List&lt;Category&gt;</returns>
+        </member>
+        <member name="T:ConsoleShop.Dal.ShopContext">
+            <inheritdoc />
+        </member>
+        <member name="P:ConsoleShop.Dal.ShopContext.Products">
+            <inheritdoc />
+        </member>
+        <member name="P:ConsoleShop.Dal.ShopContext.Categories">
+            <inheritdoc />
+        </member>
+        <member name="P:ConsoleShop.Dal.ShopContext.Users">
+            <inheritdoc />
+        </member>
+        <member name="P:ConsoleShop.Dal.ShopContext.Orders">
+            <inheritdoc />
+        </member>
+        <member name="T:ConsoleShop.Controller.HelpController">
+            <inheritdoc/>
+        </member>
+        <member name="F:ConsoleShop.Controller.HelpController._commands">
+            <summary>
+            List of available commands
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Controller.HelpController._session">
+            <summary>
+            An object that provide session functions
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Controller.HelpController._actionResultFactory">
+            <summary>
+            Object that instantiate IActionResult object
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Controller.HelpController.#ctor(System.Collections.Generic.IEnumerable{ConsoleShop.Commands.Base.ICommand},ConsoleShop.Controller.Base.ISession,ConsoleShop.Controller.Base.IActionResultFactory)">
+            <summary>
+            Initialize new instance of HelpController
+            </summary>
+            <param name="commands">List of available commands</param>
+            <param name="session">An object that provide session functions</param>
+            <param name="actionResultFactory">Object that instantiate IActionResult object</param>
+        </member>
+        <member name="M:ConsoleShop.Controller.HelpController.ViewCommands">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Controller.HelpController.ShowCommand(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ConsoleShop.Controller.Interfaces.IHelpController">
+            <summary>
+            Defines operations applicable with Commands
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IHelpController.ViewCommands">
+            <summary>
+            Returns all available commands
+            </summary>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Controller.Interfaces.IHelpController.ShowCommand(System.String)">
+            <summary>
+            Return requested command
+            </summary>
+            <param name="cmd">The name of the requested command</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="T:ConsoleShop.Services.RequestHelper">
+            <summary>
+            Сlass that reads the request and selects the command to execute
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Services.RequestHelper.commands">
+            <summary>
+            List of available commands
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Services.RequestHelper.#ctor(System.Collections.Generic.IEnumerable{ConsoleShop.Commands.Base.ICommand})">
+            <summary>
+            Initialize new instance of Requesthelper
+            </summary>
+            <param name="commands">List of available commands</param>
+        </member>
+        <member name="M:ConsoleShop.Services.RequestHelper.ReadRequest(System.String)">
+            <summary>
+            Read request and selects the command to execute
+            </summary>
+            <param name="line">String entered by the user in the console</param>
+            <returns></returns>
+        </member>
+        <member name="T:ConsoleShop.Services.ShopSession">
+            <summary>
+            Object that persists the state of a user's session between requests.
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Services.ShopSession.User">
+            <summary>
+            Authorized user
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Services.ShopSession.Cart">
+            <summary>
+            Shopping cart
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Services.ShopSession.SetUser(ConsoleShop.Model.User)">
+            <summary>
+            Method that sets an instance of an authorized user
+            </summary>
+            <param name="user">Authorized user</param>
+        </member>
+        <member name="T:ConsoleShop.Commands.ViewModels.OrderStatusViewModel">
+            <summary>
+            Implements order status selection
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Commands.ViewModels.OrderStatusViewModel.SelectOrderStatus">
+            <summary>
+            Select order status via console UI
+            </summary>
+            <returns>OrderStatus</returns>
+            <exception cref="T:ConsoleShop.Dal.Exception.NotFoundException">Thrwon when user choose unexisting order status</exception>
+        </member>
+        <member name="T:ConsoleShop.Commands.ViewModels.ProductViewModel">
+            <summary>
+            Implements the products form's
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Commands.ViewModels.ProductViewModel.CreateProduct(System.Collections.Generic.IEnumerable{ConsoleShop.Model.Category})">
+            <summary>
+            Implements the product creation form
+            </summary>
+            <param name="categories">List of available categories</param>
+            <returns>New Product instance</returns>
+        </member>
+        <member name="M:ConsoleShop.Commands.ViewModels.ProductViewModel.ChangeProduct(ConsoleShop.Model.Product,System.Collections.Generic.IEnumerable{ConsoleShop.Model.Category})">
+            <summary>
+            Implements the product update form
+            </summary>
+            <param name="product">Available product</param>
+            <param name="categories">List of available categories</param>
+            <returns></returns>
+        </member>
+        <member name="T:ConsoleShop.View.Base.BaseView">
+            <summary>
+            Implement IActionResult, inherits from ConsoleShop.Controller.Base BaseActionResult
+            for the console user interface
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.Base.BaseView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
+            <summary>
+            Initialize new instance of response object. 
+            </summary>
+            <param name="result">Response result</param>
+            <param name="message">Response messag</param>
+            <param name="resultBody">Collection of requested entities</param>
+        </member>
+        <member name="M:ConsoleShop.View.Base.BaseView.RenderBody">
+            <summary>
+            Render response body in console
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.View.Base.BaseView.Width">
+            <summary>
+            Get console window width to prettier output purposes
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.Base.BaseView.RenderHeader(ConsoleShop.Controller.Base.ISession)">
+            <summary>
+            Render shop header, displays information about the current user
+            </summary>
+            <param name="session"></param>
+        </member>
+        <member name="M:ConsoleShop.View.Base.BaseView.RenderHeader">
+            <summary>
+            Render default shop header, before user's login
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.Base.BaseView.RenderFooter">
+            <summary>
+            Render shop footer
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.Base.BaseView.Render(ConsoleShop.Controller.Base.ISession)">
+            <summary>
+            Render response with header and footer in console
+            </summary>
+            <param name="session">Current session object</param>
+        </member>
+        <member name="M:ConsoleShop.View.Base.BaseView.RenderResult">
+            <summary>
+            Render response result
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.Base.BaseView.RenderMessage">
+            <summary>
+            Render response status message
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.Base.BaseView.PrintColorizedWordInBracketsNoBreak(System.String,System.ConsoleColor)">
+            <summary>
+            Displays the word in the given color without newline
+            </summary>
+            <param name="msg">message</param>
+            <param name="color">Color</param>
+        </member>
+        <member name="M:ConsoleShop.View.Base.BaseView.PrintBorderLineColorized(System.Char,System.ConsoleColor)">
+            <summary>
+            Displays horizontal line from given chars with given color
+            </summary>
+            <param name="ch">Char</param>
+            <param name="color">Color</param>
+        </member>
+        <member name="M:ConsoleShop.View.Base.BaseView.PrintBorderLine(System.Char,System.Boolean)">
+            <summary>
+            Displays horizontal line from given chars with default color
+            </summary>
+            <param name="ch">Char</param>
+            <param name="newLine">If true print empty line after border</param>
+        </member>
+        <member name="M:ConsoleShop.View.Base.BaseView.PrintColorizedMessage(System.String,System.ConsoleColor)">
+            <summary>
+            Displays the message in the given color with a new line
+            </summary>
+            <param name="msg">Message</param>
+            <param name="color">Color</param>
+        </member>
+        <member name="M:ConsoleShop.View.Base.BaseView.PrintColorizedMessageNoBreak(System.String,System.ConsoleColor)">
+            <summary>
+            Displayes the string with given color without new line
+            </summary>
+            <param name="msg">Message</param>
+            <param name="color">Color</param>
+        </member>
+        <member name="M:ConsoleShop.View.Base.BaseView.PrintColorizedDefinition(System.String,System.String,System.ConsoleColor)">
+            <summary>
+            Displayes the string with colorized first word
+            </summary>
+            <param name="word">Colorized part</param>
+            <param name="definition">Default color part</param>
+            <param name="color">Color</param>
+        </member>
+        <member name="M:ConsoleShop.View.Base.BaseView.MakeColumn(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Justify a list of strings
+            </summary>
+            <param name="strings">List of string</param>
+            <returns>list of strings with added whitespaces</returns>
+        </member>
+        <member name="M:ConsoleShop.View.CartView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
+            <summary>
+            Initialize new instance of CartView response object.
+            </summary>
+            <param name="result">Response result</param>
+            <param name="message">Response messag</param>
+            <param name="resultBody">Collection of requested entities</param>
+        </member>
+        <member name="M:ConsoleShop.View.CartView.RenderBody">
+            <summary>
+            Displays collections of requested entities
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.CategoryView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
+            <summary>
+            Initialize new instance of CategoryView response object.
+            </summary>
+            <param name="result">Response result</param>
+            <param name="message">Response messag</param>
+            <param name="resultBody">Collection of requested entities</param>
+        </member>
+        <member name="M:ConsoleShop.View.CategoryView.RenderBody">
+            <summary>
+            Displays collections of requested entities
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.ErrorView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
+            <summary>
+            Initialize new instance of ErrorView response object.
+            </summary>
+            <param name="result">Response result</param>
+            <param name="message">Response messag</param>
+            <param name="resultBody">Collection of requested entities</param>
+        </member>
+        <member name="M:ConsoleShop.View.ErrorView.RenderBody">
+            <summary>
+            Displays default message
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.HelpView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
+            <summary>
+            Initialize new instance of HelpView response object.
+            </summary>
+            <param name="result">Response result</param>
+            <param name="message">Response messag</param>
+            <param name="resultBody">Collection of requested entities</param>
+        </member>
+        <member name="M:ConsoleShop.View.HelpView.RenderBody">
+            <summary>
+            Displays collections of requested entities
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.LoginView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
+            <summary>
+            Initialize new instance of LoginView response object.
+            </summary>
+            <param name="result">Response result</param>
+            <param name="message">Response messag</param>
+            <param name="resultBody">Collection of requested entities</param>
+        </member>
+        <member name="M:ConsoleShop.View.LoginView.RenderBody">
+            <summary>
+            Displays collections of requested entities
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.OrderView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
+            <summary>
+            Initialize new instance of OrderView response object.
+            </summary>
+            <param name="result">Response result</param>
+            <param name="message">Response messag</param>
+            <param name="resultBody">Collection of requested entities</param>
+        </member>
+        <member name="M:ConsoleShop.View.OrderView.RenderBody">
+            <summary>
+            Displays collections of requested entities
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.ProductView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
+            <summary>
+            Initialize new instance of ProductView response object.
+            </summary>
+            <param name="result">Response result</param>
+            <param name="message">Response messag</param>
+            <param name="resultBody">Collection of requested entities</param>
+        </member>
+        <member name="M:ConsoleShop.View.ProductView.RenderBody">
+            <summary>
+            Displays collections of requested entities
+            </summary>
+        </member>
+    </members>
+</doc>

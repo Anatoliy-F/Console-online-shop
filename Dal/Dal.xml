@@ -355,20 +355,5 @@
         <member name="M:ConsoleShop.Dal.Repos.UserRepo.UpdateByName(System.String,ConsoleShop.Model.User)">
             <inheritdoc />
         </member>
-        <member name="T:ConsoleShop.Dal.ShopContext">
-            <inheritdoc />
-        </member>
-        <member name="P:ConsoleShop.Dal.ShopContext.Products">
-            <inheritdoc />
-        </member>
-        <member name="P:ConsoleShop.Dal.ShopContext.Categories">
-            <inheritdoc />
-        </member>
-        <member name="P:ConsoleShop.Dal.ShopContext.Users">
-            <inheritdoc />
-        </member>
-        <member name="P:ConsoleShop.Dal.ShopContext.Orders">
-            <inheritdoc />
-        </member>
     </members>
 </doc>
