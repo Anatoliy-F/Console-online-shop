@@ -8,6 +8,9 @@ using System.Linq;
 
 namespace ConsoleShop.View
 {
+    /// <summary>
+    /// Implement IActionResult for all operations with shopping cart
+    /// </summary>
     public class CartView : BaseView
     {
         private readonly IEnumerable<CartLine> _cartLines;

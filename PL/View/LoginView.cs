@@ -8,6 +8,9 @@ using System.Linq;
 
 namespace ConsoleShop.View
 {
+    /// <summary>
+    /// Implement IActionResult for all operations user login/logout and changing personal data
+    /// </summary>
     public class LoginView : BaseView
     {
         private readonly IEnumerable<User> _user;

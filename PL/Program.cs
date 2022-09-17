@@ -13,6 +13,9 @@ using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
+    /// <summary>
+    ///  Console application .NET Core that simulates the work of an online store
+    /// </summary>
     public static class Program
     {
         static void Main(string[] args)
@@ -20,12 +23,12 @@ namespace ConsoleApp1
             //init dependencies
             IShopContext shopContext = DataSeeder.InitContext();
             ISession session = new ShopSession();
-            List<ICommand> commands = new List<ICommand>();
 
+            List<ICommand> commands = new List<ICommand>();
             ControllerFactory factory = new ControllerFactory(shopContext, session, commands);
             commands.AddRange(ShopCommands.Init(factory, new ErrorViewFactory()));
-            RequestHelper requestHelper = new RequestHelper(commands);
 
+            RequestHelper requestHelper = new RequestHelper(commands);
 
             Console.Title = "Console EShop | Fedorchenko Anatolii | .Net Design and Architecture";
 

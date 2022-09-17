@@ -152,7 +152,7 @@ namespace ConsoleShop.Controller
             else
             {
                 return _actionResultFactory.GetResultRender(ActionResult.Warning,
-                        $"You can't set this status: {status.ToString()}");
+                        $"You can't set this status: {status}");
             }
         }
     }

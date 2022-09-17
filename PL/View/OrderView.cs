@@ -8,6 +8,9 @@ using System.Linq;
 
 namespace ConsoleShop.View
 {
+    /// <summary>
+    /// Implement IActionResult for all operations with orders
+    /// </summary>
     public class OrderView : BaseView
     {
         private readonly IEnumerable<Order> _orders;

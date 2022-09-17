@@ -8,6 +8,9 @@ using System.Linq;
 
 namespace ConsoleShop.View
 {
+    /// <summary>
+    /// Implement IActionResult for all operations with available commands in shop
+    /// </summary>
     public class HelpView : BaseView
     {
         private readonly IEnumerable<ICommand> _commands;

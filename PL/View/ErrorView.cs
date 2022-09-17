@@ -6,6 +6,9 @@ using System.Collections.Generic;
 
 namespace ConsoleShop.View
 {
+    /// <summary>
+    /// Implement IActionResult for rendering errors
+    /// </summary>
     public class ErrorView : BaseView
     {
         /// <summary>

@@ -90,6 +90,11 @@
             which provides a response object in case of an error while executing the command</param>
             <returns>List&lt;ICommand&gt;</returns>
         </member>
+        <member name="T:ConsoleApp1.Program">
+            <summary>
+             Console application .NET Core that simulates the work of an online store
+            </summary>
+        </member>
         <member name="T:ConsoleApp1.View.Base.SessionExtension">
             <summary>
             Creates extension methods for the session object
@@ -438,6 +443,11 @@
             <param name="strings">List of string</param>
             <returns>list of strings with added whitespaces</returns>
         </member>
+        <member name="T:ConsoleShop.View.CartView">
+            <summary>
+            Implement IActionResult for all operations with shopping cart
+            </summary>
+        </member>
         <member name="M:ConsoleShop.View.CartView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
             <summary>
             Initialize new instance of CartView response object.
@@ -449,6 +459,11 @@
         <member name="M:ConsoleShop.View.CartView.RenderBody">
             <summary>
             Displays collections of requested entities
+            </summary>
+        </member>
+        <member name="T:ConsoleShop.View.CategoryView">
+            <summary>
+            Implement IActionResult for all operations with categories in shop
             </summary>
         </member>
         <member name="M:ConsoleShop.View.CategoryView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
@@ -464,6 +479,11 @@
             Displays collections of requested entities
             </summary>
         </member>
+        <member name="T:ConsoleShop.View.ErrorView">
+            <summary>
+            Implement IActionResult for rendering errors
+            </summary>
+        </member>
         <member name="M:ConsoleShop.View.ErrorView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
             <summary>
             Initialize new instance of ErrorView response object.
@@ -475,6 +495,109 @@
         <member name="M:ConsoleShop.View.ErrorView.RenderBody">
             <summary>
             Displays default message
+            </summary>
+        </member>
+        <member name="T:ConsoleShop.View.Factories.CartViewFactory">
+            <summary>
+            Implement IActionResultFactory. Instantiate CartView object.
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.Factories.CartViewFactory.GetResultRender(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
+            <summary>
+            Return instance of CartView object
+            </summary>
+            <param name="result">Response result</param>
+            <param name="message">Response messag</param>
+            <param name="responseBody">Collection of requested entitie</param>
+            <returns>CartView object</returns>
+        </member>
+        <member name="T:ConsoleShop.View.Factories.CategoryViewFactory">
+            <summary>
+            Implement IActionResultFactory. Instantiate CategoryView object.
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.Factories.CategoryViewFactory.GetResultRender(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
+            <summary>
+            Return instance of CategoryView object
+            </summary>
+            <param name="result">Response result</param>
+            <param name="message">Response messag</param>
+            <param name="responseBody">Collection of requested entitie</param>
+            <returns>CategoryView object</returns>
+        </member>
+        <member name="T:ConsoleShop.View.Factories.ErrorViewFactory">
+            <summary>
+            Implement IActionResultFactory. Instantiate ErrorView object.
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.Factories.ErrorViewFactory.GetResultRender(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
+            <summary>
+            Return instance of ErrorView object
+            </summary>
+            <param name="result">Response result</param>
+            <param name="message">Response messag</param>
+            <param name="responseBody">Collection of requested entitie</param>
+            <returns>ErrorView object</returns>
+        </member>
+        <member name="T:ConsoleShop.View.Factories.HelpViewFactory">
+            <summary>
+            Implement IActionResultFactory. Instantiate HelpView object.
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.Factories.HelpViewFactory.GetResultRender(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
+            <summary>
+            Return instance of HelpView object
+            </summary>
+            <param name="result">Response result</param>
+            <param name="message">Response messag</param>
+            <param name="responseBody">Collection of requested entitie</param>
+            <returns>HelpView object</returns>
+        </member>
+        <member name="T:ConsoleShop.View.Factories.LoginViewFactory">
+            <summary>
+            Implement IActionResultFactory. Instantiate LoginView object.
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.Factories.LoginViewFactory.GetResultRender(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
+            <summary>
+            Return instance of LoginView object
+            </summary>
+            <param name="result">Response result</param>
+            <param name="message">Response messag</param>
+            <param name="responseBody">Collection of requested entitie</param>
+            <returns>LoginView object</returns>
+        </member>
+        <member name="T:ConsoleShop.View.Factories.OrderViewFactory">
+            <summary>
+            Implement IActionResultFactory. Instantiate OrderView object.
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.Factories.OrderViewFactory.GetResultRender(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
+            <summary>
+            Return instance of OrderView object
+            </summary>
+            <param name="result">Response result</param>
+            <param name="message">Response messag</param>
+            <param name="responseBody">Collection of requested entitie</param>
+            <returns>OrderView object</returns>
+        </member>
+        <member name="T:ConsoleShop.View.Factories.ProductViewFactory">
+            <summary>
+            Implement IActionResultFactory. Instantiate ProductView object.
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.Factories.ProductViewFactory.GetResultRender(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
+            <summary>
+            Return instance of ProductView object
+            </summary>
+            <param name="result">Response result</param>
+            <param name="message">Response messag</param>
+            <param name="responseBody">Collection of requested entitie</param>
+            <returns>ProductView object</returns>
+        </member>
+        <member name="T:ConsoleShop.View.HelpView">
+            <summary>
+            Implement IActionResult for all operations with available commands in shop
             </summary>
         </member>
         <member name="M:ConsoleShop.View.HelpView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
@@ -490,6 +613,11 @@
             Displays collections of requested entities
             </summary>
         </member>
+        <member name="T:ConsoleShop.View.LoginView">
+            <summary>
+            Implement IActionResult for all operations user login/logout and changing personal data
+            </summary>
+        </member>
         <member name="M:ConsoleShop.View.LoginView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
             <summary>
             Initialize new instance of LoginView response object.
@@ -503,6 +631,11 @@
             Displays collections of requested entities
             </summary>
         </member>
+        <member name="T:ConsoleShop.View.OrderView">
+            <summary>
+            Implement IActionResult for all operations with orders
+            </summary>
+        </member>
         <member name="M:ConsoleShop.View.OrderView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
             <summary>
             Initialize new instance of OrderView response object.
@@ -514,6 +647,11 @@
         <member name="M:ConsoleShop.View.OrderView.RenderBody">
             <summary>
             Displays collections of requested entities
+            </summary>
+        </member>
+        <member name="T:ConsoleShop.View.ProductView">
+            <summary>
+            Implement IActionResult for all operations products
             </summary>
         </member>
         <member name="M:ConsoleShop.View.ProductView.#ctor(ConsoleShop.Controller.Base.ActionResult,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.BaseEntity.IEntity})">
