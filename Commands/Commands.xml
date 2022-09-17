@@ -1,0 +1,375 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Commands</name>
+    </assembly>
+    <members>
+        <member name="T:ConsoleShop.Commands.Base.BaseCommand">
+            <summary>
+            Base Command class, defines method for checking permissions
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Commands.Base.BaseCommand.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:ConsoleShop.Commands.Base.BaseCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:ConsoleShop.Commands.Base.BaseCommand.ErrorViewFactory">
+            <summary>
+            Factory that instantiate Error response, set once for all Command instances
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Commands.Base.BaseCommand.Roles">
+            <inheritdoc/>
+        </member>
+        <member name="F:ConsoleShop.Commands.Base.BaseCommand._permissionErrorMsg">
+            <summary>
+            Base access error message
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.Base.BaseCommand._argsErrorMessage">
+            <summary>
+            Base arguments validation error message
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Commands.Base.BaseCommand.#ctor(System.String,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.UserRole})">
+            <summary>
+            Base class constructor
+            </summary>
+            <param name="name">Command name</param>
+            <param name="description">Description of the result of the command execution</param>
+            <param name="roles">List of user roles for which the command is available for execution</param>
+        </member>
+        <member name="M:ConsoleShop.Commands.Base.BaseCommand.Execute(ConsoleShop.Model.User,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ConsoleShop.Commands.Base.BaseCommand.ExecuteDelegate">
+            <summary>
+            Method executed by the command after checking the access rights and command arguments
+            </summary>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Commands.Base.BaseCommand.ReadArgs(System.String)">
+            <summary>
+            Reads and validates request arguments
+            </summary>
+            <param name="args">Request arguments</param>
+            <returns>True, if arguments correct</returns>
+        </member>
+        <member name="M:ConsoleShop.Commands.Base.BaseCommand.HasPermission(ConsoleShop.Model.User)">
+            <summary>
+            Check user permissions
+            </summary>
+            <param name="user">User object for check execute permissions</param>
+            <returns>True, if user has permissions</returns>
+        </member>
+        <member name="T:ConsoleShop.Commands.Base.ICommand">
+            <summary>
+            Defines properties and methods of Command objects
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Commands.Base.ICommand.Name">
+            <summary>
+            Command name
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Commands.Base.ICommand.Description">
+            <summary>
+            Command description
+            </summary>
+        </member>
+        <member name="P:ConsoleShop.Commands.Base.ICommand.Roles">
+            <summary>
+            List of user roles for which the command is available for execution
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Commands.Base.ICommand.Execute(ConsoleShop.Model.User,System.String)">
+            <summary>
+            User request execution
+            </summary>
+            <param name="user">User object for check execute permissions</param>
+            <param name="args">Request arguments</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="T:ConsoleShop.Commands.Command">
+            <summary>
+            Command that takes no arguments to execute
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.Command._executor">
+            <summary>
+            Delegate for execution
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command.#ctor(System.String,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.UserRole},System.Func{ConsoleShop.Controller.Base.IActionResult})">
+            <summary>
+            Command class constructor
+            </summary>
+            <param name="name">Command name</param>
+            <param name="description">Description of the result of the command execution</param>
+            <param name="roles">List of user roles for which the command is available for execution</param>
+            <param name="executor">Delegate to be executed when the command is invoked</param>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command.ExecuteDelegate">
+            <summary>
+            Delegate execution
+            </summary>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command.ReadArgs(System.String)">
+            <summary>
+            Read and validate that request arguments is empty string
+            </summary>
+            <param name="args">Request arguments</param>
+            <returns>True, if arguments correct</returns>
+        </member>
+        <member name="T:ConsoleShop.Commands.Command1NumArg">
+            <summary>
+            Command that takes one integer argument to execute
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.Command1NumArg._executor">
+            <summary>
+            Delegate for execution
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.Command1NumArg._arg">
+            <summary>
+            Number argument
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command1NumArg.#ctor(System.String,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.UserRole},System.Func{System.Int32,ConsoleShop.Controller.Base.IActionResult})">
+            <summary>
+            Command class constructor
+            </summary>
+            <param name="name">Command name</param>
+            <param name="description">Description of the result of the command execution</param>
+            <param name="roles">List of user roles for which the command is available for execution</param>
+            <param name="executor">Delegate to be executed when the command is invoked</param>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command1NumArg.ExecuteDelegate">
+            <summary>
+            Delegate execution
+            </summary>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command1NumArg.ReadArgs(System.String)">
+            <summary>
+            Read and validate that request arguments is one integer number
+            </summary>
+            <param name="args">Request arguments</param>
+            <returns>True, if arguments correct</returns>
+        </member>
+        <member name="T:ConsoleShop.Commands.Command2NumArg">
+            <summary>
+            Command that takes two integer arguments to execute
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.Command2NumArg._executor">
+            <summary>
+            Delegate for execution
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.Command2NumArg._arg1">
+            <summary>
+            Number argument
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.Command2NumArg._arg2">
+            <summary>
+            Number argument
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command2NumArg.#ctor(System.String,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.UserRole},System.Func{System.Int32,System.Int32,ConsoleShop.Controller.Base.IActionResult})">
+            <summary>
+            Command class constructor
+            </summary>
+            <param name="name">Command name</param>
+            <param name="description">Description of the result of the command execution</param>
+            <param name="roles">List of user roles for which the command is available for execution</param>
+            <param name="executor">Delegate to be executed when the command is invoked</param>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command2NumArg.ExecuteDelegate">
+            <summary>
+            Delegate execution
+            </summary>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command2NumArg.ReadArgs(System.String)">
+            <summary>
+            Read and validate that request arguments is two integer number
+            </summary>
+            <param name="args">Request arguments</param>
+            <returns>True, if arguments correct</returns>
+        </member>
+        <member name="T:ConsoleShop.Commands.Command2StrArg">
+            <summary>
+            Command that takes two string arguments to execute
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.Command2StrArg._executor">
+            <summary>
+            Delegate for execution
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.Command2StrArg._arg1">
+            <summary>
+            String arguments
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.Command2StrArg._arg2">
+            <summary>
+            String arguments
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command2StrArg.#ctor(System.String,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.UserRole},System.Func{System.String,System.String,ConsoleShop.Controller.Base.IActionResult})">
+            <summary>
+            Command class constructor
+            </summary>
+            <param name="name">Command name</param>
+            <param name="description">Description of the result of the command execution</param>
+            <param name="roles">List of user roles for which the command is available for execution</param>
+            <param name="executor">Delegate to be executed when the command is invoked</param>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command2StrArg.ExecuteDelegate">
+            <summary>
+            Delegate execution
+            </summary>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command2StrArg.ReadArgs(System.String)">
+            <summary>
+            Read and validate that request arguments is two strings
+            </summary>
+            <param name="args">Request arguments</param>
+            <returns>True, if arguments correct</returns>
+        </member>
+        <member name="T:ConsoleShop.Commands.Command2WordArg">
+            <summary>
+            Command that takes two words (string without whitespaces) arguments to execute
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.Command2WordArg._executor">
+            <summary>
+            Delegate for execution
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.Command2WordArg._arg1">
+            <summary>
+            String without whitespaces
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.Command2WordArg._arg2">
+            <summary>
+            String without whitespaces
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command2WordArg.#ctor(System.String,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.UserRole},System.Func{System.String,System.String,ConsoleShop.Controller.Base.IActionResult})">
+            <summary>
+            Command class constructor
+            </summary>
+            <param name="name">Command name</param>
+            <param name="description">Description of the result of the command execution</param>
+            <param name="roles">List of user roles for which the command is available for execution</param>
+            <param name="executor">Delegate to be executed when the command is invoked</param>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command2WordArg.ExecuteDelegate">
+            <summary>
+            Delegate execution
+            </summary>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command2WordArg.ReadArgs(System.String)">
+            <summary>
+            Read and validate that request arguments is two words (string without whitespaces)
+            </summary>
+            <param name="args">Request arguments</param>
+            <returns>True, if arguments correct</returns>
+        </member>
+        <member name="T:ConsoleShop.Commands.Command3WordArg">
+            <summary>
+            Command that takes three words (string without whitespaces) arguments to execute
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.Command3WordArg._executor">
+            <summary>
+            Delegate for execution
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.Command3WordArg._arg1">
+            <summary>
+            String without whitespaces
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.Command3WordArg._arg2">
+            <summary>
+            String without whitespaces
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.Command3WordArg._arg3">
+            <summary>
+            String without whitespaces
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command3WordArg.#ctor(System.String,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.UserRole},System.Func{System.String,System.String,System.String,ConsoleShop.Controller.Base.IActionResult})">
+            <summary>
+            Command class constructor
+            </summary>
+            <param name="name">Command name</param>
+            <param name="description">Description of the result of the command execution</param>
+            <param name="roles">List of user roles for which the command is available for execution</param>
+            <param name="executor">Delegate to be executed when the command is invoked</param>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command3WordArg.ExecuteDelegate">
+            <summary>
+            Delegate execution
+            </summary>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Commands.Command3WordArg.ReadArgs(System.String)">
+            <summary>
+            Read and validate that request arguments is three words (string without whitespaces)
+            </summary>
+            <param name="args">Request arguments</param>
+            <returns>True, if arguments correct</returns>
+        </member>
+        <member name="T:ConsoleShop.Commands.CommandStrArg">
+            <summary>
+            Command that takes one string argument to execute
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.CommandStrArg._executor">
+            <summary>
+            Delegate for execution
+            </summary>
+        </member>
+        <member name="F:ConsoleShop.Commands.CommandStrArg._arg">
+            <summary>
+            String argument
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.Commands.CommandStrArg.#ctor(System.String,System.String,System.Collections.Generic.IEnumerable{ConsoleShop.Model.UserRole},System.Func{System.String,ConsoleShop.Controller.Base.IActionResult})">
+            <summary>
+            Command class constructor
+            </summary>
+            <param name="name">Command name</param>
+            <param name="description">Description of the result of the command execution</param>
+            <param name="roles">List of user roles for which the command is available for execution</param>
+            <param name="executor">Delegate to be executed when the command is invoked</param>
+        </member>
+        <member name="M:ConsoleShop.Commands.CommandStrArg.ExecuteDelegate">
+            <summary>
+            Delegate execution
+            </summary>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:ConsoleShop.Commands.CommandStrArg.ReadArgs(System.String)">
+            <summary>
+            Read and validate that request arguments is one string
+            </summary>
+            <param name="args">Request arguments</param>
+            <returns>True, if arguments correct</returns>
+        </member>
+    </members>
+</doc>
