@@ -1,4 +1,4 @@
-﻿using ConsoleApp1.View.Base;
+﻿using ConsoleShop.View.Base;
 using ConsoleShop.Controller.Base;
 using ConsoleShop.Model.BaseEntity;
 using System;
@@ -45,7 +45,7 @@ namespace ConsoleShop.View.Base
         /// <summary>
         /// Render shop header, displays information about the current user
         /// </summary>
-        /// <param name="session"></param>
+        /// <param name="session">Object that persists the state of a user's session between requests</param>
         protected virtual void RenderHeader(ISession session)
         {
             string msg = $"{session.GetUserName()} | Orders: {session.GetOrdersCount()} | Positions in Cart: {session.GetCartLinesCount()} | Total spent: ${session.GetUserTotal()}";

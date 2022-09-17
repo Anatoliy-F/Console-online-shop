@@ -19,7 +19,7 @@ namespace ConsoleShop.Dal.Repos
         /// <summary>
         /// Initialize new instance of UserRepository to manage saving, updating and retrieving User's entities 
         /// </summary>
-        /// <param name="shopContext"></param>
+        /// <param name="shopContext">Storage for all entities</param>
         public UserRepo(IShopContext shopContext)
         {
             _users = shopContext.Users;

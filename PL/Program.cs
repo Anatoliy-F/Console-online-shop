@@ -1,4 +1,4 @@
-﻿using ConsoleApp1.Config;
+﻿using ConsoleShop.Config;
 using ConsoleShop.Commands.Base;
 using ConsoleShop.Controller.Base;
 using ConsoleShop.Dal;
@@ -11,7 +11,7 @@ using ConsoleShop.View.Factories;
 using System;
 using System.Collections.Generic;
 
-namespace ConsoleApp1
+namespace ConsoleShop
 {
     /// <summary>
     ///  Console application .NET Core that simulates the work of an online store

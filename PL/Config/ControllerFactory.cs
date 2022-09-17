@@ -7,7 +7,7 @@ using ConsoleShop.Dal.Repos;
 using ConsoleShop.View.Factories;
 using System.Collections.Generic;
 
-namespace ConsoleApp1.Config
+namespace ConsoleShop.Config
 {
     /// <summary>
     /// Returns controller objects by injecting dependencies through the constructor.

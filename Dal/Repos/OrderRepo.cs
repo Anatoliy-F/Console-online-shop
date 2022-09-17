@@ -22,7 +22,7 @@ namespace ConsoleShop.Dal.Repos
         /// <summary>
         /// Initialize new instance of OrderRepository to manage saving, updating and retrieving Order's entities 
         /// </summary>
-        /// <param name="shopContext">storage</param>
+        /// <param name="shopContext">Storage for all entities</param>
         public OrderRepo(IShopContext shopContext)
         {
             _orders = shopContext.Orders;

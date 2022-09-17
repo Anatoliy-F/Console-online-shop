@@ -30,7 +30,7 @@ namespace ConsoleShop.Bll.Model
         /// <summary>
         /// Returns the total cost of goods
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Total cost of goods</returns>
         public decimal ComputeTotalValue();
 
         /// <summary>

@@ -90,19 +90,26 @@
             </summary>
         </member>
         <member name="T:ConsoleShop.Dal.Repos.BaseRepo`1">
-            <inheritdoc />
+            <summary>
+            Implement IRepo. Provide base repositories operations
+            </summary>
+            <typeparam name="T">IEntity type</typeparam>
         </member>
         <member name="P:ConsoleShop.Dal.Repos.BaseRepo`1.ShopContext">
-            <inheritdoc />
+            <summary>
+            Storage for all entities
+            </summary>
         </member>
         <member name="P:ConsoleShop.Dal.Repos.BaseRepo`1.List">
-            <inheritdoc />
+            <summary>
+            Collection of entities
+            </summary>
         </member>
         <member name="M:ConsoleShop.Dal.Repos.BaseRepo`1.#ctor(ConsoleShop.Dal.IShopContext)">
             <summary>
             Initialize new instance of repository
             </summary>
-            <param name="shopContext"></param>
+            <param name="shopContext">Storage for all entities</param>
         </member>
         <member name="T:ConsoleShop.Dal.Repos.CategoryRepo">
             <inheritdoc />
@@ -116,7 +123,7 @@
             <summary>
             Initialize new instance of CategoryRepository to manage saving, updating and retrieving Categories entities 
             </summary>
-            <param name="shopContext">storage</param>
+            <param name="shopContext">Storage for all entities</param>
         </member>
         <member name="M:ConsoleShop.Dal.Repos.CategoryRepo.Add(ConsoleShop.Model.Category)">
             <inheritdoc />
@@ -194,7 +201,7 @@
             <summary>
             Base repository interface
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">IEntity type</typeparam>
         </member>
         <member name="M:ConsoleShop.Dal.Repos.Interfaces.IRepo`1.Add(`0)">
             <summary>
@@ -272,7 +279,7 @@
             <summary>
             Initialize new instance of OrderRepository to manage saving, updating and retrieving Order's entities 
             </summary>
-            <param name="shopContext">storage</param>
+            <param name="shopContext">Storage for all entities</param>
         </member>
         <member name="M:ConsoleShop.Dal.Repos.OrderRepo.Add(ConsoleShop.Model.Order)">
             <inheritdoc />
@@ -306,7 +313,7 @@
             <summary>
             Initialize new instance of ProductRepository to manage saving, updating and retrieving Product entities
             </summary>
-            <param name="shopContext">storage</param>
+            <param name="shopContext">Storage for all entities</param>
         </member>
         <member name="M:ConsoleShop.Dal.Repos.ProductRepo.Add(ConsoleShop.Model.Product)">
             <inheritdoc />
@@ -335,7 +342,7 @@
             <summary>
             Initialize new instance of UserRepository to manage saving, updating and retrieving User's entities 
             </summary>
-            <param name="shopContext"></param>
+            <param name="shopContext">Storage for all entities</param>
         </member>
         <member name="M:ConsoleShop.Dal.Repos.UserRepo.Add(ConsoleShop.Model.User)">
             <inheritdoc />

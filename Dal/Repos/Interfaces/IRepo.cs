@@ -6,7 +6,7 @@ namespace ConsoleShop.Dal.Repos.Interfaces
     /// <summary>
     /// Base repository interface
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">IEntity type</typeparam>
     public interface IRepo<T> where T : IEntity
     {
         /// <summary>

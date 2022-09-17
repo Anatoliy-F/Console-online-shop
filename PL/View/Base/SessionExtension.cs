@@ -1,7 +1,7 @@
 ﻿using ConsoleShop.Controller.Base;
 using System.Linq;
 
-namespace ConsoleApp1.View.Base
+namespace ConsoleShop.View.Base
 {
     /// <summary>
     /// Creates extension methods for the session object

@@ -4,28 +4,28 @@
         <name>PL</name>
     </assembly>
     <members>
-        <member name="T:ConsoleApp1.Config.ControllerFactory">
+        <member name="T:ConsoleShop.Config.ControllerFactory">
             <summary>
             Returns controller objects by injecting dependencies through the constructor.
             Actually configures the application controllers.
             </summary>
         </member>
-        <member name="F:ConsoleApp1.Config.ControllerFactory._shopContext">
+        <member name="F:ConsoleShop.Config.ControllerFactory._shopContext">
             <summary>
             Data store
             </summary>
         </member>
-        <member name="F:ConsoleApp1.Config.ControllerFactory._session">
+        <member name="F:ConsoleShop.Config.ControllerFactory._session">
             <summary>
             Current user session
             </summary>
         </member>
-        <member name="F:ConsoleApp1.Config.ControllerFactory._commands">
+        <member name="F:ConsoleShop.Config.ControllerFactory._commands">
             <summary>
             List of available commands
             </summary>
         </member>
-        <member name="M:ConsoleApp1.Config.ControllerFactory.#ctor(ConsoleShop.Dal.IShopContext,ConsoleShop.Controller.Base.ISession,System.Collections.Generic.IEnumerable{ConsoleShop.Commands.Base.ICommand})">
+        <member name="M:ConsoleShop.Config.ControllerFactory.#ctor(ConsoleShop.Dal.IShopContext,ConsoleShop.Controller.Base.ISession,System.Collections.Generic.IEnumerable{ConsoleShop.Commands.Base.ICommand})">
             <summary>
             Initialize new instance of Controller factory
             </summary>
@@ -33,55 +33,55 @@
             <param name="session">Current user session</param>
             <param name="commands">List of available commands</param>
         </member>
-        <member name="M:ConsoleApp1.Config.ControllerFactory.GetProductController">
+        <member name="M:ConsoleShop.Config.ControllerFactory.GetProductController">
             <summary>
             Returns the configured ProductController
             </summary>
             <returns>ProductController instance</returns>
         </member>
-        <member name="M:ConsoleApp1.Config.ControllerFactory.GetCartController">
+        <member name="M:ConsoleShop.Config.ControllerFactory.GetCartController">
             <summary>
             Returns the configured CartController
             </summary>
             <returns>CartController instance</returns>
         </member>
-        <member name="M:ConsoleApp1.Config.ControllerFactory.GetUserController">
+        <member name="M:ConsoleShop.Config.ControllerFactory.GetUserController">
             <summary>
             Returns the configured UserController
             </summary>
             <returns>UserController instance</returns>
         </member>
-        <member name="M:ConsoleApp1.Config.ControllerFactory.GetOrderController">
+        <member name="M:ConsoleShop.Config.ControllerFactory.GetOrderController">
             <summary>
             Returns the configured OrderController
             </summary>
             <returns>OrderController instance</returns>
         </member>
-        <member name="M:ConsoleApp1.Config.ControllerFactory.GetErrorController">
+        <member name="M:ConsoleShop.Config.ControllerFactory.GetErrorController">
             <summary>
             Returns the configured ErrorController
             </summary>
             <returns>ErrorController instance</returns>
         </member>
-        <member name="M:ConsoleApp1.Config.ControllerFactory.GetHelpController">
+        <member name="M:ConsoleShop.Config.ControllerFactory.GetHelpController">
             <summary>
             Returns the configured HelpController
             </summary>
             <returns>HelpController instance</returns>
         </member>
-        <member name="M:ConsoleApp1.Config.ControllerFactory.GetCategoryController">
+        <member name="M:ConsoleShop.Config.ControllerFactory.GetCategoryController">
             <summary>
             Returns the configured CategoryController
             </summary>
             <returns>CategoryController instance</returns>
         </member>
-        <member name="T:ConsoleApp1.Config.ShopCommands">
+        <member name="T:ConsoleShop.Config.ShopCommands">
             <summary>
             Return list of configured commands, available in application.
             Actualy configures commands available via UI
             </summary>
         </member>
-        <member name="M:ConsoleApp1.Config.ShopCommands.Init(ConsoleApp1.Config.ControllerFactory,ConsoleShop.Controller.Base.IActionResultFactory)">
+        <member name="M:ConsoleShop.Config.ShopCommands.Init(ConsoleShop.Config.ControllerFactory,ConsoleShop.Controller.Base.IActionResultFactory)">
             <summary>
             Return list of configured commands
             </summary>
@@ -89,51 +89,6 @@
             <param name="errorFactory">Instance of IActionResult factory, 
             which provides a response object in case of an error while executing the command</param>
             <returns>List&lt;ICommand&gt;</returns>
-        </member>
-        <member name="T:ConsoleApp1.Program">
-            <summary>
-             Console application .NET Core that simulates the work of an online store
-            </summary>
-        </member>
-        <member name="T:ConsoleApp1.View.Base.SessionExtension">
-            <summary>
-            Creates extension methods for the session object
-            </summary>
-        </member>
-        <member name="M:ConsoleApp1.View.Base.SessionExtension.IsLoggedIn(ConsoleShop.Controller.Base.ISession)">
-            <summary>
-            Check is user logged in
-            </summary>
-            <param name="session">session object</param>
-            <returns>true, if user logged in</returns>
-        </member>
-        <member name="M:ConsoleApp1.View.Base.SessionExtension.GetUserName(ConsoleShop.Controller.Base.ISession)">
-            <summary>
-            Return name of logged in user or default name value
-            </summary>
-            <param name="session">session object</param>
-            <returns>User.Name or "Guest" for unauthorized users</returns>
-        </member>
-        <member name="M:ConsoleApp1.View.Base.SessionExtension.GetCartLinesCount(ConsoleShop.Controller.Base.ISession)">
-            <summary>
-            Count item is shopping cart
-            </summary>
-            <param name="session">session object</param>
-            <returns>Number of items in the cart</returns>
-        </member>
-        <member name="M:ConsoleApp1.View.Base.SessionExtension.GetOrdersCount(ConsoleShop.Controller.Base.ISession)">
-            <summary>
-            Counts the number of orders made by the user
-            </summary>
-            <param name="session">session object</param>
-            <returns>Number of user's orders</returns>
-        </member>
-        <member name="M:ConsoleApp1.View.Base.SessionExtension.GetUserTotal(ConsoleShop.Controller.Base.ISession)">
-            <summary>
-            Calculates the amount of money spent on purchases
-            </summary>
-            <param name="session">session object</param>
-            <returns>The amount of money spent by the user</returns>
         </member>
         <member name="T:ConsoleShop.DataSeed.DataSeeder">
             <summary>
@@ -211,6 +166,11 @@
         <member name="P:ConsoleShop.Dal.ShopContext.Orders">
             <inheritdoc />
         </member>
+        <member name="T:ConsoleShop.Program">
+            <summary>
+             Console application .NET Core that simulates the work of an online store
+            </summary>
+        </member>
         <member name="T:ConsoleShop.Controller.HelpController">
             <inheritdoc/>
         </member>
@@ -282,7 +242,7 @@
             Read request and selects the command to execute
             </summary>
             <param name="line">String entered by the user in the console</param>
-            <returns></returns>
+            <returns>ICommand object, string arguments</returns>
         </member>
         <member name="T:ConsoleShop.Services.ShopSession">
             <summary>
@@ -335,7 +295,7 @@
             </summary>
             <param name="product">Available product</param>
             <param name="categories">List of available categories</param>
-            <returns></returns>
+            <returns>Object with properties to be updated</returns>
         </member>
         <member name="T:ConsoleShop.View.Base.BaseView">
             <summary>
@@ -365,7 +325,7 @@
             <summary>
             Render shop header, displays information about the current user
             </summary>
-            <param name="session"></param>
+            <param name="session">Object that persists the state of a user's session between requests</param>
         </member>
         <member name="M:ConsoleShop.View.Base.BaseView.RenderHeader">
             <summary>
@@ -442,6 +402,46 @@
             </summary>
             <param name="strings">List of string</param>
             <returns>list of strings with added whitespaces</returns>
+        </member>
+        <member name="T:ConsoleShop.View.Base.SessionExtension">
+            <summary>
+            Creates extension methods for the session object
+            </summary>
+        </member>
+        <member name="M:ConsoleShop.View.Base.SessionExtension.IsLoggedIn(ConsoleShop.Controller.Base.ISession)">
+            <summary>
+            Check is user logged in
+            </summary>
+            <param name="session">session object</param>
+            <returns>true, if user logged in</returns>
+        </member>
+        <member name="M:ConsoleShop.View.Base.SessionExtension.GetUserName(ConsoleShop.Controller.Base.ISession)">
+            <summary>
+            Return name of logged in user or default name value
+            </summary>
+            <param name="session">session object</param>
+            <returns>User.Name or "Guest" for unauthorized users</returns>
+        </member>
+        <member name="M:ConsoleShop.View.Base.SessionExtension.GetCartLinesCount(ConsoleShop.Controller.Base.ISession)">
+            <summary>
+            Count item is shopping cart
+            </summary>
+            <param name="session">session object</param>
+            <returns>Number of items in the cart</returns>
+        </member>
+        <member name="M:ConsoleShop.View.Base.SessionExtension.GetOrdersCount(ConsoleShop.Controller.Base.ISession)">
+            <summary>
+            Counts the number of orders made by the user
+            </summary>
+            <param name="session">session object</param>
+            <returns>Number of user's orders</returns>
+        </member>
+        <member name="M:ConsoleShop.View.Base.SessionExtension.GetUserTotal(ConsoleShop.Controller.Base.ISession)">
+            <summary>
+            Calculates the amount of money spent on purchases
+            </summary>
+            <param name="session">session object</param>
+            <returns>The amount of money spent by the user</returns>
         </member>
         <member name="T:ConsoleShop.View.CartView">
             <summary>

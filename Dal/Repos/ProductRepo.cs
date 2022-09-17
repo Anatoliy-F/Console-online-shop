@@ -23,7 +23,7 @@ namespace ConsoleShop.Dal.Repos
         /// <summary>
         /// Initialize new instance of ProductRepository to manage saving, updating and retrieving Product entities
         /// </summary>
-        /// <param name="shopContext">storage</param>
+        /// <param name="shopContext">Storage for all entities</param>
         public ProductRepo(IShopContext shopContext)
         {
             _products = shopContext.Products;
@@ -31,23 +31,23 @@ namespace ConsoleShop.Dal.Repos
         }
 
         /// <inheritdoc />
-        public int Add(Product updatedProduct)
+        public int Add(Product entity)
         {
-            if(updatedProduct.Name != String.Empty && updatedProduct.Description != String.Empty && updatedProduct.Price > 0m && updatedProduct.CategoryId != 0)
+            if(entity.Name != String.Empty && entity.Description != String.Empty && entity.Price > 0m && entity.CategoryId != 0)
             {
-                var category = _categories.FirstOrDefault(c => c.Id == updatedProduct.CategoryId);
+                var category = _categories.FirstOrDefault(c => c.Id == entity.CategoryId);
 
                 if (category != null){
-                    updatedProduct.CategoryNav = category;
+                    entity.CategoryNav = category;
 
                     int id = _products.Max(p => p.Id) + 1;
-                    updatedProduct.Id = id;
-                    _products.Add(updatedProduct);
+                    entity.Id = id;
+                    _products.Add(entity);
                     return id;
                 }
                 else
                 {
-                    throw new NotFoundException($"No category with id: {updatedProduct.CategoryId} in shop");
+                    throw new NotFoundException($"No category with id: {entity.CategoryId} in shop");
                 }
             }
             else

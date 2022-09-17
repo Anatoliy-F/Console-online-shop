@@ -48,7 +48,7 @@ namespace ConsoleShop.Commands.ViewModels
         /// </summary>
         /// <param name="product">Available product</param>
         /// <param name="categories">List of available categories</param>
-        /// <returns></returns>
+        /// <returns>Object with properties to be updated</returns>
         public static Product ChangeProduct(Product product, IEnumerable<Category> categories)
         {
             Product updateProduct = new Product();

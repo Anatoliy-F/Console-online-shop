@@ -18,7 +18,7 @@ namespace ConsoleShop.Dal.Repos
         /// <summary>
         /// Initialize new instance of CategoryRepository to manage saving, updating and retrieving Categories entities 
         /// </summary>
-        /// <param name="shopContext">storage</param>
+        /// <param name="shopContext">Storage for all entities</param>
         public CategoryRepo(IShopContext shopContext)
         {
             _categories = shopContext.Categories;

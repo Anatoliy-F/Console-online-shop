@@ -28,7 +28,7 @@ namespace ConsoleShop.Controller.Interfaces
         public IActionResult Add(string name);
 
         /// <summary>
-        /// 
+        /// Update existing category object
         /// </summary>
         /// <param name="id">Category id</param>
         /// <param name="name">New category name</param>

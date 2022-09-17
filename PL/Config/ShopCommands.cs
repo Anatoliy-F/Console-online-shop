@@ -6,7 +6,7 @@ using ConsoleShop.Model;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ConsoleApp1.Config
+namespace ConsoleShop.Config
 {   
     /// <summary>
     /// Return list of configured commands, available in application.
